@@ -19,7 +19,7 @@ public class Treenodo {
         return dato;
     }
 
-    public void getDato(int dato) {
+    public void setDato(int dato) {
         this.dato = dato;
     }
 

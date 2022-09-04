@@ -1,5 +1,4 @@
 import java.io.*;
-
 public class Main {
     public static void main(String x[]) {
 
@@ -28,11 +27,16 @@ public class Main {
             System.out.println();
         } while (!valid);
 
+        nodo.setDato(dato);
+
         do {
             try {
                 valid = true;
-                System.out.print("\tHay dato a la izquierda de (" + dato + ") S/N: ");
+                System.out.print("\tHay dato a la izquierda de (" + nodo.getDato() + ") S/N: ");
                 resp = br.readLine();
+                if (!(resp.equals("S") || resp.equals("N"))) {
+                    valid = false;
+                }
             } 
             catch (IOException ioe) { valid = false; }
             catch (Exception ioe) { valid = false; } 
@@ -48,7 +52,8 @@ public class Main {
         
         do {
             try {
-                System.out.print("\tHay dato a la derecha de (" + dato + ") S/N: ");
+                valid = true;
+                System.out.print("\tHay dato a la derecha de (" + nodo.getDato() + ") S/N: ");
                 resp = br.readLine();
             } 
             catch (IOException ioe) { valid = false; }
