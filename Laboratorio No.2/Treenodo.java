@@ -46,5 +46,4 @@ public class Treenodo {
             this.Derptr = null;
         }
     }
-    
 }

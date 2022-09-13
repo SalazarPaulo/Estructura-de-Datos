@@ -34,9 +34,7 @@ public class Main {
                 valid = true;
                 System.out.print("\tHay dato a la izquierda de (" + nodo.getDato() + ") S/N: ");
                 resp = br.readLine();
-                if (!(resp.equals("S") || resp.equals("N"))) {
-                    valid = false;
-                }
+                if (!(resp.equals("S") || resp.equals("N"))) { valid = false; }
             } 
             catch (IOException ioe) { valid = false; }
             catch (Exception ioe) { valid = false; } 
@@ -55,6 +53,7 @@ public class Main {
                 valid = true;
                 System.out.print("\tHay dato a la derecha de (" + nodo.getDato() + ") S/N: ");
                 resp = br.readLine();
+                if (!(resp.equals("S") || resp.equals("N"))) { valid = false; }
             } 
             catch (IOException ioe) { valid = false; }
             catch (Exception ioe) { valid = false; }
@@ -66,7 +65,6 @@ public class Main {
             crear(Derptr, br);
         } else 
             Derptr = null;
-        
 
         return;
     }
