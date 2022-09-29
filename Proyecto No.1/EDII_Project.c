@@ -8,14 +8,18 @@
 //#include <graphics.h>
 ////////-------- INT_MIN & INT_MAX --------////////
 #include <limits.h>
-
+#include<stdbool.h>// Booleanos
 ////////-------- GLOBAL STATEMENTS --------////////
 #define Is_Woman  1
 #define Is_Man 2
     int max;
     int min;
-    char Family [1000] = "";
+    char Family [1000];
+    char persona[20];
     int count, countF;
+    int cambio;
+    int ronda, ronda2;
+    int otro;
 
 ////////-------- NODE --------////////
 struct treenodo {
@@ -24,8 +28,49 @@ struct treenodo {
     char nombre [20];           // dato de nombre
     char nacionalidad[20];     // dato de nacionalidad
     int Key_Gender;           // Clave para saber si es hombre o mujer
+    int check;
     struct treenodo *derptr; // puntero al nodo derecho
 };
+
+insertar(struct treenodo *nodo, char persona[]) {
+    char resp[1] = "S";
+    if(nodo != NULL) {
+        if (strcmp(nodo->nombre, persona) == 0) {
+            //if (((nodo->Key_Gender == Is_Woman)) && nodo->izqptr != NULL) {
+
+            printf("\n\t %s tiene madre (S/N): ", nodo->nombre);
+            scanf("%s", &resp);
+            if (((strcmp(resp, "S") == 0) || (strcmp(resp, "s") == 0)) && nodo->izqptr == NULL) {
+                    nodo->izqptr = malloc (sizeof(struct treenodo));
+                    crear(nodo->izqptr);
+            }else if (((strcmp(resp, "S") == 0) || (strcmp(resp, "s") == 0)) && nodo->izqptr != NULL)
+                printf("\n\tYa posee una madre\n");
+
+            printf("\t%s tiene padre (S/N): ", nodo->nombre);
+            scanf("%s", &resp);
+             if (((strcmp(resp, "S") == 0) || (strcmp(resp, "s") == 0)) && nodo->derptr == NULL) {
+                nodo->derptr = malloc (sizeof(struct treenodo));
+                crear(nodo->derptr);
+            } else if (((strcmp(resp, "S") == 0) || (strcmp(resp, "s") == 0)) && nodo->derptr != NULL) {
+                printf("\n\tYa posee un padre\n");
+            }
+        } else {
+            //printf("estabamos en %s\n", nodo->nombre);
+            insertar(nodo->izqptr, persona);
+            insertar(nodo->derptr, persona);
+        }
+    }
+    return;
+}
+preorden (struct treenodo *nodo){
+    if (nodo != NULL) {
+        printf(" |%s| ", nodo->nombre);
+        preorden(nodo->izqptr);
+        preorden(nodo->derptr);
+    }
+    return 0;
+}
+
 
 ////////-------- MENU --------////////
 Menu () {
@@ -39,6 +84,10 @@ Presentation () {
     printf("\n\tDEPARTAMENTO DE COMPUTACION Y SIMULACION DE SISTEMAS\n\n\n\tLICENCIATURA EN INGENIERIA DE SISTEMAS Y COMPUTACION\n\t\t\tESTRUCTURA DE DATOS II");
     printf("\n\t\t\t   PROYECTO NO.1\n\n\n\tPROF.: CUETO, DORIS\n\n\t\t\t\t    INTEGRANTES: \n\t\t\t\t\tARQUINEZ, LIANETH 8-974-1567\n\t\t\t\t\tGONZALES, JOHANA 8-1004-1648");
     printf("\n\t\t\t\t\tLORENZO, KAREN 8-987-1549\n\t\t\t\t\tSALAZAR, PEDR0 8-937-444\n\n\t\t\t\tGRUPO: 1IL122\n\n\t\t\tFECHA: 26 DE SEPTIEMBRE DE 2022\n");
+}
+SubMenu(){
+    printf ("\n\t\t\tMENU\n\t1. Nombre de todos los progenitores femeninos \n\t2. Nombre de todos los progenitores masculinos \n\t3. Todos los Padres con sus hijos");
+    printf("\n\t4. Nacionalidad de mis descendientes \n\t5. Progenitor de mayor edad\n\t6. Progenitor de menor edad\n\t7. Volver al menú\n\n\tRespuesta: ");
 }
 
 ////////-------- REPORTS --------////////
@@ -96,20 +145,39 @@ GetFathers (struct treenodo *nodo){ // <--------- REVISAR/DONE
 ////////-------- FAMILY --------////////
 // Father & Mother with Son // <--- PostOrden
 GetFamily (struct treenodo *nodo) {
+    if (nodo != NULL) {
+        if (ronda2 != ronda) {
 
-    strcpy(Family, nodo->nombre);
-    char hijo = nodo->nombre;
-    char padre = hijo!=nodo->nombre? GetFamily(nodo->derptr): GetFamily(nodo->izqptr);
+            GetFamily(nodo->izqptr);
+            GetFamily(nodo->derptr);
 
-    printf("\tEl hijo es: %s", hijo);
-    printf("\tEl padre es: %s", padre);
-
+            if (cambio == 0) {
+                    if(otro==0)
+                        printf("\n\tLa Mamá: %s ", nodo->nombre);
+                cambio++;
+                otro++;
+                //printf("\n %i", cambio);
+            }
+            else if(cambio == 1) {
+                printf(" y el Papá: %s", nodo->nombre);
+                cambio++;
+            }
+            else if (cambio == 2) {
+                printf(" tienen un hijo llamado: %s", nodo->nombre);
+                printf("\n\tLa Mamá: %s ", nodo->nombre);
+                cambio++;
+            }
+            nodo->check = 1;
+        }
+        cambio = (cambio == 3)? cambio = 0: cambio;
+        ronda2++;
+    }
     return;
 }
 
 ////////-------- MAX & MIN --------////////
 // Obtener el valor minimo
-GetMinAge (struct treenodo *nodo) { // <---------- REVISAR/DONE
+int GetMinAge (struct treenodo *nodo) { // <---------- REVISAR/DONE
 
     int res;
 
@@ -129,7 +197,7 @@ GetMinAge (struct treenodo *nodo) { // <---------- REVISAR/DONE
     return res;
 }
 // Obtener el valor maximo
-GetMaxAge (struct treenodo *nodo) { // <---------- REVISAR/DONE
+int GetMaxAge (struct treenodo *nodo) { // <---------- REVISAR/DONE
 
     if (nodo == NULL)
         return INT_MIN;
@@ -156,7 +224,7 @@ int main(){
     setlocale(LC_ALL, "");
 
     ////////-------- STATEMENTS & DECLARATIVES --------////////
-    int optionMenu, pass;
+    int optionMenu, pass, optSub,pass2;
 
     do {
         system("cls");
@@ -178,14 +246,84 @@ int main(){
                 crear (nodo);
             break;
             case 3:
+                system("cls");
+                printf("\n\tIngrese el nodo padre: ");
+                scanf("%s", &persona);
+                insertar(nodo, persona);
             break;
             case 4:
+                system("cls");
+                printf("\tNombre de todos los Progenitores:\n");
+                preorden(nodo);
+                printf("\n\n\tPress Enter to continue...\n\t");
+                getchar();
+                getchar();
             break;
             case 5:
-                system("cls");
-                Reports(nodo);
-                getchar();
-                getchar();
+                do{
+                    system("cls");
+                    //Reports(nodo);
+                    SubMenu();
+                    /*getchar();
+                    getchar();*/
+                     do {
+                        fflush(stdin);
+                        scanf("%i", &optSub);
+                    } while (optSub < 1 || optSub > 7);
+                    switch(optSub){
+                        case 1:
+                            system("cls");
+                            printf("\tNombre de todos los Progenitores Femeninos:\n");
+                            preorden(nodo);
+                            printf("\n\n\tPress Enter to continue...\n\t");
+                            getchar();
+                            getchar();
+                            break;
+                        case 2:
+                            system("cls");
+                            printf("\tNombre de todos los Progenitores Masculinos:\n");
+                            GetFathers(nodo);
+                            printf("\n\n\tPress Enter to continue...\n\t");
+                            getchar();
+                            getchar();
+                            break;
+                        case 3:
+                            system("cls");
+                            printf("\n\tTodos los padres con sus hijos: \n");
+                            GetFamily(nodo);
+                            printf("\n\n\tPress Enter to continue...\n\t");
+                            getchar();
+                            getchar();
+                            break;
+                        case 4:
+                            system("cls");
+                            //printf("\n\tNacionalidad de todos mis descendientes: ");
+                            //GetNationality(nodo);
+                            printf("\n\n\tPress Enter to continue...\n\t");
+                            getchar();
+                            getchar();
+                            break;
+                        case 5:
+                            system("cls");
+                            //printf("\n\tEl progenitor de mayor edad: %d", GetMaxAge(nodo));
+                            printf("\n\n\tPress Enter to continue...\n\t");
+                            getchar();
+                            getchar();
+                            break;
+                        case 6:
+                            system("cls");
+                            //printf("\n\tEl progenitor de menor edad: %d", GetMinAge(nodo));
+                            printf("\n\n\tPress Enter to continue...\n\t");
+                            getchar();
+                            getchar();
+                            break;
+                        case 7:
+                            pass2=0;
+                            break;
+                    }
+                }while(pass2!=0);
+
+
             break;
             case 6:
                 pass = 0;
@@ -211,6 +349,8 @@ int main(){
     ////---- NAME ----////
     printf("\n\tIngresar el familiar: ");
     scanf("%s", &nodo->nombre);
+    nodo->check = 0;
+    ronda++;
 
     ////---- GENDER ----//// <-------------- DONE
    // printf("\n\tGenero([1]Mujer/[2]Hombre: ");
@@ -229,7 +369,7 @@ int main(){
     printf("\t%s tiene madre(S/N): ", nodo -> nombre);
     scanf("%s", &resp);
 
-    if (strcmp (resp,"S")== 0) {
+    if (strcmp (resp,"S") == 0) {
         nodo->izqptr = malloc (sizeof(struct treenodo));
         crear(nodo->izqptr);
     } else
