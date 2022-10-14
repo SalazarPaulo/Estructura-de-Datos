@@ -1,16 +1,16 @@
 package Metodos;
 
-import java.io.*;
 import Cargadores.*;
-
 public class EscogerPreguntas extends DataBase {
 
     private int[] preguntas = new int[10];
     public int j;
     public boolean leido = true;
+    DataBase db = new DataBase();
+    Datos[] datos = db.getDatos();
 
     ////////-------- Rellenando el arreglo sin repetir  --------////////
-    private void escogerPreguntas() {
+    public void setPreguntas() {
         int i = 0;
         preguntas[i] = (int)(Math.random() * 60);
         for(i = 1; i < preguntas.length; i++) {
@@ -21,18 +21,7 @@ public class EscogerPreguntas extends DataBase {
             }
         }
     }
-
-    private void imprimirPreguntas() {
-        int i = 0;
-        DataBase db = new DataBase();
-        Datos[] datos = db.getDatos();
-        for (i = 0; i < preguntas.length; i++) {
-            System.out.println(datos[preguntas[i]].pregunta);
-        }
-    }
-    public static void main(String x[]) {
-        EscogerPreguntas ep = new EscogerPreguntas();
-        ep.escogerPreguntas();
-        ep.imprimirPreguntas();
+    public String getPreguntas(int i) {
+        return datos[preguntas[i]].pregunta;
     }
 }
