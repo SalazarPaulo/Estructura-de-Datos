@@ -14,7 +14,7 @@ public class FondoBlanco extends JPanel {
 
         this.setBackground(Color.white);
         this.setLayout(new GridLayout(Constantes.FILAS,Constantes.COLUMNAS));
-        JTextField [][] textField = new JTextField [Constantes.FILAS][Constantes.COLUMNAS];
+        JTextField [][] textField = new JTextField [Constantes.FILAS][Constantes.COLUMNAS]; // JLabel[][] label = new JLabel[filas][columnas];
         for (int i=0;i<Constantes.FILAS;i++)
             for (int j=0;j<Constantes.COLUMNAS;j++) {
                 textField[i][j] = new JTextField(1);

@@ -19,9 +19,9 @@ public class Crucigrama extends JFrame {
         frame.setBounds(0,500, 400, 400);
         frame.setResizable(true);
 
-        frame.getContentPane().add(new FondoNegro());
+        frame.getContentPane().add(negro);
         // frame.setLocation(100, 100);
-        frame.getContentPane().add(new FondoBlanco());
+        frame.getContentPane().add(blanco);
 
         frame.pack();
         frame.setVisible(state);

@@ -8,36 +8,52 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-
 public class FondoNegro extends JPanel {
 
     private String palabra;
-    JTextField respuesta;
+    JTextField [] respuestas;
+    JButton reiniciar, guardar, cambiar, validar;
+    JButton[] enviar, cambiarP;
+    public int i;
 
     public FondoNegro() {
 
         this.setBackground(Color.gray);
-        respuesta = new JTextField(10);
 
         FlowLayout layout = new FlowLayout();
         layout.setVgap(20);
-        layout.setHgap(70);
+        layout.setHgap(100);
 
         this.setLayout(layout);
 
         this.setLayout(new GridLayout(Constantes.FILAS+2,1));
-        JTextField [] textField = new JTextField [Constantes.FILAS];
-        for (int i=0;i<Constantes.FILAS;i++) {
-            textField[i] = new JTextField(1);
+        respuestas = new JTextField [Constantes.FILAS];
+        for (i = 0; i < Constantes.FILAS; i++) {
+            respuestas[i] = new JTextField(10);
             this.add(new JLabel("Pregunta No.%i %s: "));// colocar un contador y la pregunta
-            this.add(textField[i]);
+            this.add(respuestas[i]);
             this.add(new JButton("Cambiar Pregunta"));
             this.add(new JButton("Enviar"));
         }
+        this.add(new JLabel(""));
+        this.add(new JLabel(""));
+        this.add(new JLabel(""));
+        this.add(new JLabel(""));
+
         this.add(new JButton("Cambiar Crucigrama"));
+        this.add(new JButton("Validar"));
         this.add(new JButton("Reiniciar"));
+        this.add(new JButton("Guardar"));
     }
-    private String GetPalabra() {
+    private String getPalabra() {
+
+        for(i = 0; i < Constantes.FILAS; i++) {
+            if (respuestas[i].getText().equals("SI")) {
+                palabra = "SI"; // ESCRIBIR EN EL CRUCIGRAMA
+            } else {
+                palabra = "NO"; // Tambien se puede hacer por recursividad
+            }
+        }
         return palabra;
     }
 }
