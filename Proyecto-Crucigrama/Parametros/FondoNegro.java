@@ -33,6 +33,9 @@ public class FondoNegro extends JLabel implements ActionListener {
         cambiar.setFont(new Font("Times New Roman", Font.BOLD, 15));
         cambiar.addActionListener(this);
 
+        // Botones Enviar Respuestas
+        enviar = new JButton[Constantes.FILAS];
+
         EscogerPreguntas ep = new EscogerPreguntas();
         ep.setPreguntas();
 
@@ -45,13 +48,26 @@ public class FondoNegro extends JLabel implements ActionListener {
         this.setLayout(layout);
         this.setLayout(new GridLayout(Constantes.FILAS+2,1));
         respuestas = new JTextField [Constantes.FILAS];
+
         for (i = 0; i < Constantes.FILAS; i++) {
+
             respuestas[i] = new JTextField(10);
+            // Boton Enviar
+            enviar[i] = new JButton("Enviar Respuestas");
+            enviar[i].setHorizontalAlignment(SwingConstants.LEFT);
+            enviar[i].setBounds(10, 10, 50, 50);
+            enviar[i].setPreferredSize(new java.awt.Dimension(10, 10));
+            enviar[i].setFont(new Font("Times New Roman", Font.BOLD, 15));
+            enviar[i].addActionListener(this);
+
+            this.add(new JButton("Cambiar Pregunta"));
+            this.add(enviar[i]);
+        }
+        for (i = 0; i < Constantes.FILAS; i++) {
             this.add(new JLabel(ep.getPreguntas(i)));// colocar un contador y la pregunta
             this.add(respuestas[i]);
-            this.add(new JButton("Cambiar Pregunta"));
-            this.add(new JButton("Enviar"));
         }
+
         this.add(new JLabel("Score: "));
         this.add(new JLabel(""));
         this.add(new JLabel("Time: "));
@@ -62,8 +78,9 @@ public class FondoNegro extends JLabel implements ActionListener {
         this.add(new JButton("Reiniciar"));
         this.add(new JButton("Guardar"));
 
-        // botones = new Botones();
-        // botones.botones();
+    }
+    public String getRespuestas() {
+        return (respuestas[i].getText());
     }
     private String getPalabra() {
 
