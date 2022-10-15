@@ -1,7 +1,7 @@
 package Metodos;
 
 import Parametros.*;
-public class Botones  {
+public class Botones {
     EscogerPreguntas ep;
     public int i;
     public Botones() {

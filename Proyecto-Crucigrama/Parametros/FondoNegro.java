@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import Metodos.*;
-public class FondoNegro extends JLabel implements ActionListener {
+public class FondoNegro extends JPanel implements ActionListener {
 
     private String palabra;
     private byte val;
@@ -32,6 +32,30 @@ public class FondoNegro extends JLabel implements ActionListener {
         cambiar.setPreferredSize(new java.awt.Dimension(10, 10));
         cambiar.setFont(new Font("Times New Roman", Font.BOLD, 15));
         cambiar.addActionListener(this);
+
+        // Boton validar Crucigrama
+        validar = new JButton("Validar Crucigrama");
+        validar.setHorizontalAlignment(SwingConstants.LEFT);
+        validar.setBounds(50, 105, 173, 50);
+        validar.setPreferredSize(new java.awt.Dimension(10, 10));
+        validar.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        validar.addActionListener(this);
+
+        // Boton reiniciar Crucigrama
+        reiniciar = new JButton("Reiniciar Crucigrama");
+        reiniciar.setHorizontalAlignment(SwingConstants.LEFT);
+        reiniciar.setBounds(50, 105, 173, 50);
+        reiniciar.setPreferredSize(new java.awt.Dimension(10, 10));
+        reiniciar.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        reiniciar.addActionListener(this);
+
+        // Boton guardar Crucigrama
+        guardar = new JButton("Validar Crucigrama");
+        guardar.setHorizontalAlignment(SwingConstants.LEFT);
+        guardar.setBounds(50, 105, 173, 50);
+        guardar.setPreferredSize(new java.awt.Dimension(10, 10));
+        guardar.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        guardar.addActionListener(this);
 
         // Botones Enviar Respuestas
         enviar = new JButton[Constantes.FILAS];
@@ -60,12 +84,11 @@ public class FondoNegro extends JLabel implements ActionListener {
             enviar[i].setFont(new Font("Times New Roman", Font.BOLD, 15));
             enviar[i].addActionListener(this);
 
-            this.add(new JButton("Cambiar Pregunta"));
-            this.add(enviar[i]);
-        }
-        for (i = 0; i < Constantes.FILAS; i++) {
             this.add(new JLabel(ep.getPreguntas(i)));// colocar un contador y la pregunta
             this.add(respuestas[i]);
+
+            this.add(new JButton("Cambiar Pregunta"));
+            this.add(enviar[i]);
         }
 
         this.add(new JLabel("Score: "));
@@ -74,12 +97,12 @@ public class FondoNegro extends JLabel implements ActionListener {
         this.add(new JLabel(""));
 
         this.add(cambiar);
-        this.add(new JButton("Validar"));
+        this.add(validar);
         this.add(new JButton("Reiniciar"));
         this.add(new JButton("Guardar"));
 
     }
-    public String getRespuestas() {
+    public String getRespuestas(int i) {
         return (respuestas[i].getText());
     }
     private String getPalabra() {
@@ -101,7 +124,7 @@ public class FondoNegro extends JLabel implements ActionListener {
             setVisible(true);
 
         } else if (e.getSource() == validar) {
-            val = 2;
+            System.out.println("Boton validar Crucigrama " + getRespuestas(0));
             notify();
             setVisible(true);
         }  else if (e.getSource() == reiniciar) {
