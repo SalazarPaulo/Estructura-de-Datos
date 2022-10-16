@@ -3,6 +3,7 @@ package Parametros;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.*;
 
@@ -11,6 +12,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+import javax.swing.*;
 
 import Metodos.*;
 public class FondoNegro extends JPanel implements ActionListener {
@@ -18,45 +21,12 @@ public class FondoNegro extends JPanel implements ActionListener {
     private String palabra;
     private byte val;
     JTextField [] respuestas;
-    JButton reiniciar, guardar, cambiar, validar;
     JButton[] enviar, cambiarP;
     public int i;
     Botones botones = new Botones();
+    JPanel contentpane;
 
     public FondoNegro() {
-
-        // Boton Cambiar Crucigrama
-        cambiar = new JButton("Cambiar Crucigrama");
-        cambiar.setHorizontalAlignment(SwingConstants.LEFT);
-        cambiar.setBounds(50, 105, 173, 50);
-        cambiar.setPreferredSize(new java.awt.Dimension(10, 10));
-        cambiar.setFont(new Font("Times New Roman", Font.BOLD, 15));
-        cambiar.addActionListener(this);
-
-        // Boton validar Crucigrama
-        validar = new JButton("Validar Crucigrama");
-        validar.setHorizontalAlignment(SwingConstants.LEFT);
-        validar.setBounds(50, 105, 173, 50);
-        validar.setPreferredSize(new java.awt.Dimension(10, 10));
-        validar.setFont(new Font("Times New Roman", Font.BOLD, 15));
-        validar.addActionListener(this);
-
-        // Boton reiniciar Crucigrama
-        reiniciar = new JButton("Reiniciar Crucigrama");
-        reiniciar.setHorizontalAlignment(SwingConstants.LEFT);
-        reiniciar.setBounds(50, 105, 173, 50);
-        reiniciar.setPreferredSize(new java.awt.Dimension(10, 10));
-        reiniciar.setFont(new Font("Times New Roman", Font.BOLD, 15));
-        reiniciar.addActionListener(this);
-
-        // Boton guardar Crucigrama
-        guardar = new JButton("Validar Crucigrama");
-        guardar.setHorizontalAlignment(SwingConstants.LEFT);
-        guardar.setBounds(50, 105, 173, 50);
-        guardar.setPreferredSize(new java.awt.Dimension(10, 10));
-        guardar.setFont(new Font("Times New Roman", Font.BOLD, 15));
-        guardar.addActionListener(this);
-
         // Botones Enviar Respuestas
         enviar = new JButton[Constantes.FILAS];
 
@@ -64,12 +34,22 @@ public class FondoNegro extends JPanel implements ActionListener {
         ep.setPreguntas();
 
         this.setBackground(Color.gray);
+        // ------------------ //
+        JPanel jp = new JPanel();
+        jp.setLayout(new BorderLayout());
+        // jp.setSize(200, 200);
+        // jp.setLocation(0,0);
+        // content.removeAll();
+        // jp.add(cambiar, BorderLayout.NORTH);
+        // Content.revalidate();
+        // content.repaint();
+        // FlowLayout layout = new FlowLayout();
+        // layout.setVgap(20);
+        // layout.setHgap(100);
 
-        FlowLayout layout = new FlowLayout();
-        layout.setVgap(20);
-        layout.setHgap(100);
+        // // this.setLayout(layout);
+        GridLayout layout = new GridLayout(Constantes.FILAS+2,1);
 
-        this.setLayout(layout);
         this.setLayout(new GridLayout(Constantes.FILAS+2,1));
         respuestas = new JTextField [Constantes.FILAS];
 
@@ -96,10 +76,6 @@ public class FondoNegro extends JPanel implements ActionListener {
         this.add(new JLabel("Time: "));
         this.add(new JLabel(""));
 
-        this.add(cambiar);
-        this.add(validar);
-        this.add(new JButton("Reiniciar"));
-        this.add(new JButton("Guardar"));
 
     }
     public String getRespuestas(int i) {
@@ -118,20 +94,20 @@ public class FondoNegro extends JPanel implements ActionListener {
     }
     @Override
     public synchronized void actionPerformed (ActionEvent e) {
-        if (e.getSource() == cambiar) {
+        if (e.getSource() == respuestas[i]) {
             botones.cambiar();
             notify();
             setVisible(true);
 
-        } else if (e.getSource() == validar) {
+        } else if (e.getSource() == respuestas[i]) {
             System.out.println("Boton validar Crucigrama " + getRespuestas(0));
             notify();
             setVisible(true);
-        }  else if (e.getSource() == reiniciar) {
+        }  else if (e.getSource() == respuestas[i]) {
             val = 3;
             notify();
             setVisible(true);
-        }  else if (e.getSource() == guardar) {
+        }  else if (e.getSource() == respuestas[i]) {
             val = 4;
             notify();
             setVisible(true);

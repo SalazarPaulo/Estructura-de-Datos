@@ -12,7 +12,7 @@ public class FondoBlanco extends JPanel {
 
     public FondoBlanco() {
 
-        this.setBackground(Color.white);
+        this.setBackground(Color.RED);
         this.setLayout(new GridLayout(Constantes.FILAS,Constantes.COLUMNAS));
         JTextField [][] textField = new JTextField [Constantes.FILAS][Constantes.COLUMNAS]; // JLabel[][] label = new JLabel[filas][columnas];
         for (int i=0;i<Constantes.FILAS;i++)
