@@ -17,7 +17,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.*;
-import java.lang.Thread;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -26,18 +25,13 @@ import Parametros.*;
 
 public class LateralIzq extends JPanel {
 
-    JPanel jp, jp1;
-    JLabel jl = new JLabel();
-    JButton boton1, boton2, boton3, boton4;
     public int i = 0;
     EscogerPreguntas ep = new EscogerPreguntas();
 
     public LateralIzq() {
-        jp = new JPanel();
-        jp1 = new JPanel();
+
         ep.setPreguntas();
-        // jp.setLayout(new BorderLayout());
-        jp1.setLayout(new GridLayout(10, 1));
+        this.setLayout(new GridLayout(12, 1));
 
         JButton J_Button = new JButton("Change Label");
         J_Button.setBounds(50, 105, 173, 50);
@@ -61,6 +55,9 @@ public class LateralIzq extends JPanel {
                 }
             }
         });
+        Constantes.J_Label01.setBorder(BorderFactory.createLineBorder(Color.blue));
+
+        this.add(Constantes.J_Label);
         this.add(Constantes.J_Label01);
         this.add(Constantes.J_Label02);
         this.add(Constantes.J_Label03);
@@ -72,8 +69,5 @@ public class LateralIzq extends JPanel {
         this.add(Constantes.J_Label09);
         this.add(Constantes.J_Label10);
         this.add(J_Button);
-        // this.add(jp1, BorderLayout.NORTH);
-        // this.add(J_Label02, BorderLayout.CENTER);
-        // this.add(J_Button, BorderLayout.SOUTH);
     }
 }
