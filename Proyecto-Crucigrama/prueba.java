@@ -1,7 +1,5 @@
-package Metodos;
-
 import Cargadores.*;
-public class EscogerPreguntas extends DataBase {
+public class prueba extends DataBase {
 
     private int[] preguntas = new int[10];
     private int[] respuestas = new int[10];
@@ -9,8 +7,7 @@ public class EscogerPreguntas extends DataBase {
     public boolean leido = true;
     DataBase db = new DataBase();
     Datos[] datos = db.getDatos();
-
-    public EscogerPreguntas() {
+    public prueba() {
         setPreguntas();
     }
     ////////-------- Rellenando el arreglo sin repetir  --------////////
@@ -18,11 +15,11 @@ public class EscogerPreguntas extends DataBase {
         int i = 0;
         int num = (int)(Math.random() * 60);
         preguntas[i] = num;
-        respuestas[i] = preguntas[i];
+        respuestas[i] = 1;
         for(i = 1; i < preguntas.length; i++) {
             int num2 = (int)(Math.random() * 60);
             preguntas[i] = num2;
-            respuestas[i] = preguntas[i];
+            respuestas[i] = num2;
             for(j = 0; j < 1; j++) {
                 if(preguntas[i] == preguntas[j])
                     i--;
@@ -32,8 +29,8 @@ public class EscogerPreguntas extends DataBase {
     }
     public void imprimir() {
         for(int z = 0; z < preguntas.length; z++) {
-            System.out.print("\n<-" + preguntas[z] + "||");
-            System.out.print(respuestas[z] + "-> ");
+            // System.out.print(preguntas[z] + " ");
+            System.out.print(respuestas[z] + " ");
         }
     }
     public String getPreguntas(int i) {
@@ -43,5 +40,11 @@ public class EscogerPreguntas extends DataBase {
         int indice = respuestas[i];
         imprimir();
         return datos[indice].respuesta;
+    }
+    public static void main(String [] args) {
+        prueba c = new prueba();
+        c.imprimir();
+        // c.setVisible(true);
+        
     }
 }

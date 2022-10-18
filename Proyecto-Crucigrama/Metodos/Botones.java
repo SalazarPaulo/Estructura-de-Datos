@@ -4,8 +4,6 @@ import Parametros.*;
 public class Botones {
 
     EscogerPreguntas ep;
-    FondoNegro fn ;
-    FondoBlanco fb;
     public int i;
     LateralIzq datos;
     private String respuesta;
@@ -43,14 +41,11 @@ public class Botones {
 
     public void hacerAccionB() {
         i = 0;
-        fn = new FondoNegro();
         // fb = new FondoBlanco();
         switch(i) {
             case 0:
                 System.out.println("boton" + respuesta);
-                fb = new FondoBlanco(this);
                 // respuestas[0].getText()
-                // fn.setRespuestas(resp, i+1);
                 break;
             case 1:
                 System.out.println("botones " + respuesta);

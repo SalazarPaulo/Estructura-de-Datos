@@ -21,7 +21,6 @@ import javax.swing.*;
 import Metodos.*;
 public class FondoAbajo extends JPanel implements ActionListener {
 
-    FondoNegro fondoNegro = new FondoNegro();
     LateralIzq datos = new LateralIzq();
     JButton reiniciar, guardar, cambiar, validar;
     public int i;
@@ -30,7 +29,6 @@ public class FondoAbajo extends JPanel implements ActionListener {
 
     public FondoAbajo() {
 
-        fondoNegro = new FondoNegro();
         botones = new Botones();
 
         // Boton Cambiar Crucigrama
@@ -91,7 +89,6 @@ public class FondoAbajo extends JPanel implements ActionListener {
             setVisible(true);
 
         } else if (e.getSource() == validar) {
-            System.out.println("Boton validar Crucigrama " + fondoNegro.getRespuestas(0));
             notify();
             setVisible(true);
         }  else if (e.getSource() == reiniciar) {

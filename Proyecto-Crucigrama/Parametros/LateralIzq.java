@@ -27,10 +27,11 @@ public class LateralIzq extends JPanel {
 
     public int i = 0;
     EscogerPreguntas ep = new EscogerPreguntas();
+    int[] indice = new int[10];
 
     public LateralIzq() {
 
-        ep.setPreguntas();
+        // ep.setPreguntas();
         this.setLayout(new GridLayout(12, 1));
 
         JButton J_Button = new JButton("Change Label");
@@ -70,4 +71,10 @@ public class LateralIzq extends JPanel {
         this.add(Constantes.J_Label10);
         this.add(J_Button);
     }
+    public void recibirIndices(int k, int dato){
+        this.indice[k] = dato;
+   }
+   public int[] getIndices(){
+        return this.indice;
+   }
 }

@@ -14,8 +14,6 @@ import Parametros.*;
 import Metodos.Botones;
 public class Crucigrama extends JFrame {
 
-    FondoBlanco blanco;
-    FondoNegro negro;
     FondoAbajo abajo;
     LateralIzq izq;
     LateralDer der;
@@ -28,9 +26,6 @@ public class Crucigrama extends JFrame {
     public Crucigrama(boolean state) {
 
         frame = new JFrame();
-        blanco = new FondoBlanco();
-        // blanco = new FondoBlanco(b);
-        negro = new FondoNegro();
         abajo = new FondoAbajo();
         izq = new LateralIzq();
         der = new LateralDer();

@@ -67,7 +67,7 @@ public class LateralDer extends JPanel implements ActionListener {
         // LLenando lado izquiedo, lado oeste
         enviar = new JButton[Constantes.FILAS];
 
-        ep = new EscogerPreguntas();
+        ep = new EscogerPreguntas(); // <-- Ya cargo las preguntas
         ep.setPreguntas();
         time = new JLabel("Time: 0");
 
@@ -131,7 +131,7 @@ public class LateralDer extends JPanel implements ActionListener {
         try {
             for (i = 0; i < respuesta.length; i++) {
                 respuesta[i] = palabra.substring(i, i+1);
-                System.out.println(respuesta[i]);
+                // System.out.println(respuesta[i]);
                 textField[i][i].setText(respuesta[i]);
             }
         } catch (Exception e) {
