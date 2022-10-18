@@ -13,10 +13,11 @@ public class Botones {
     public Botones() {
         ep = new EscogerPreguntas();
     }
-    
+
     public Botones(String resp) {
         this.respuesta = resp;
         // fb = new FondoBlanco(this);
+        hacerAccionB();
     }
     public String getRespuesta() {
         return respuesta;
@@ -40,45 +41,46 @@ public class Botones {
         System.out.println("Boton guardar Crucigrama");
     }
 
-    public void hacerAccionB(int i, String resp) {
+    public void hacerAccionB() {
+        i = 0;
         fn = new FondoNegro();
-        fb = new FondoBlanco();
+        // fb = new FondoBlanco();
         switch(i) {
             case 0:
-                System.out.println("boton" + resp);
+                System.out.println("boton" + respuesta);
+                fb = new FondoBlanco(this);
                 // respuestas[0].getText()
                 // fn.setRespuestas(resp, i+1);
-                fb.dividirResp(resp);
                 break;
             case 1:
-                System.out.println("boton" + resp);
+                System.out.println("botones " + respuesta);
                 break;
             case 2:
-                System.out.println("boton" + resp);
+                System.out.println("boton" + respuesta);
                 break;
             case 3:
-                System.out.println("boton" + resp);
+                System.out.println("boton" + respuesta);
                 break;
             case 4:
-                System.out.println("boton" + resp);
+                System.out.println("boton" + respuesta);
                 break;
             case 5:
-                System.out.println("boton" + resp);
+                System.out.println("boton" + respuesta);
                 break;
             case 6:
-                System.out.println("boton" + resp);
+                System.out.println("boton" + respuesta);
                 break;
             case 7:
-                System.out.println("boton" + resp);
+                System.out.println("boton" + respuesta);
                 break;
             case 8:
-                System.out.println("boton" + resp);
+                System.out.println("boton" + respuesta);
                 break;
             case 9:
-                System.out.println("boton" + resp);
+                System.out.println("boton" + respuesta);
                 break;
             case 10:
-                System.out.println("boton" + resp);
+                System.out.println("boton" + respuesta);
                 break;
         }
     }

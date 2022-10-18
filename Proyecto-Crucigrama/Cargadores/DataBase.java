@@ -21,4 +21,7 @@ public class DataBase extends Datos {
     public void setDatos(Datos[] datos) {
         this.datos = datos;
     }
+    // public String getRespuesta(int i) {
+    //     return datos[i].respuesta;
+    // }
 }

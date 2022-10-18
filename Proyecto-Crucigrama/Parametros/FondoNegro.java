@@ -99,6 +99,7 @@ public class FondoNegro extends JPanel  implements ActionListener  {
         south.add(new JLabel(""));
 
     }
+    
     public String getRespuestas(int i) {
         return (respuestas[i].getText());
     }
@@ -118,19 +119,18 @@ public class FondoNegro extends JPanel  implements ActionListener  {
     }
     @Override
     public synchronized void actionPerformed (ActionEvent e) {
-        // botones = new Botones(respuestas[i].getText());
-        // fondoBlanco = new FondoBlanco(botones);
         if (e.getSource() == enviar[0]) {
-            // respuestas[1].setText(respuestas[0].getText());
-            botones.hacerAccionB(0, respuestas[0].getText());
-            // System.out.println("boton" + resp);
-            //     fn.setRespuestas(i, i+1);
-            //     fb.dividirResp(resp)
+            respuestas[1].setText(respuestas[0].getText());
+            botones = new Botones(respuestas[0].getText());
+            fondoBlanco = new FondoBlanco();
+            fondoBlanco.mostrar();
+            // fondoBlanco = new FondoBlanco(botones);
+            // botones.hacerAccionB(0, respuestas[0].getText());
+            // System.out.println("Boton 1");
             notify();
             setVisible(true);
         } else if (e.getSource() == enviar[1]) {
             // respuestas[2].setText(respuestas[1].getText());
-            botones.hacerAccionB(1, respuestas[1].getText());
             notify();
             setVisible(true);
         } else if (e.getSource() == enviar[2]) {
@@ -149,17 +149,17 @@ public class FondoNegro extends JPanel  implements ActionListener  {
     // @Override
     public void respuestasKeyReleased(KeyEvent e) {
         System.out.println("Funciono");
-        respuestas[1].setText("hola");
+        // respuestas[1].xt("hola");
     }
     // @Override
     // public void keyTyped(KeyEvent e) {
     //     // TODO Auto-generated method stub
-        
+
     // }
     // @Override
     // public void keyPressed(KeyEvent e) {
     //     // TODO Auto-generated method stub
-        
+
     // }
     // @Override
     // public void keyReleased(KeyEvent e) {
