@@ -3,45 +3,33 @@ package Metodos;
 import Cargadores.*;
 public class EscogerPreguntas extends DataBase {
 
-    private int[] preguntas = new int[10];
-    private int[] respuestas = new int[10];
+    public int[] indice = new int[10];
+    public int[] indice2 = new int[10];
     public int j;
-    public boolean leido = true;
     DataBase db = new DataBase();
     Datos[] datos = db.getDatos();
 
-    public EscogerPreguntas() {
-        setPreguntas();
-    }
     ////////-------- Rellenando el arreglo sin repetir  --------////////
     public void setPreguntas() {
         int i = 0;
         int num = (int)(Math.random() * 60);
-        preguntas[i] = num;
-        respuestas[i] = preguntas[i];
-        for(i = 1; i < preguntas.length; i++) {
+        indice[i] = num;
+        for(i = 1; i < indice.length; i++) {
             int num2 = (int)(Math.random() * 60);
-            preguntas[i] = num2;
-            respuestas[i] = preguntas[i];
+            indice[i] = num2;
             for(j = 0; j < 1; j++) {
-                if(preguntas[i] == preguntas[j])
+                if(indice[i] == indice[j])
                     i--;
-                }
-                // System.out.print(respuestas[i-1] + " ");
-        }
-    }
-    public void imprimir() {
-        for(int z = 0; z < preguntas.length; z++) {
-            System.out.print("\n<-" + preguntas[z] + "||");
-            System.out.print(respuestas[z] + "-> ");
+            }
         }
     }
     public String getPreguntas(int i) {
-        return datos[preguntas[i]].pregunta;
+        return datos[indice[i]].pregunta;
     }
-    public String getRespuestas(int i) {
-        int indice = respuestas[i];
-        imprimir();
-        return datos[indice].respuesta;
+    public void imprimir () {
+        for (int i = 0; i < 10; i++) {
+            System.out.println(indice[i]);
+        }
     }
+
 }

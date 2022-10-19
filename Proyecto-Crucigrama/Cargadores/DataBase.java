@@ -1,9 +1,13 @@
 package Cargadores;
 
+import Parametros.LateralDer;
+import Metodos.*;
 public class DataBase extends Datos {
 
-    Datos datos[] = new Datos[60];
-    int i;
+    private Datos[] datos = new Datos[60];
+    // protected int[] indice = new int[10];
+    public int i;
+    protected String respText, resp;
 
     public DataBase() {
         // Se cargan datos de la Base de Datos
@@ -20,8 +24,5 @@ public class DataBase extends Datos {
     }
     public void setDatos(Datos[] datos) {
         this.datos = datos;
-    }
-    public String getRespuesta(int i) {
-        return datos[i].respuesta;
     }
 }

@@ -2,6 +2,7 @@ package Metodos;
 
 public class Interseccion {
     String [][] matriz = new String[10][10];
+    int[] indice = new int[10];
     public void interseccion() {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -15,9 +16,7 @@ public class Interseccion {
         matriz[i][j] = "X ";
         System.out.print( matriz[i][j]);
     }
-    public static void main(String[] args) {
-        Interseccion inter = new Interseccion();
-        inter.interseccion();
-        inter.sobreescribir(2, 2);
+    public void setIndice(int i, int dato) {
+        indice[i] = dato;
     }
 }

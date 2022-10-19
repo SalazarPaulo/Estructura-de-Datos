@@ -18,6 +18,7 @@ import javax.xml.crypto.Data;
 import javax.swing.*;
 
 import Metodos.EscogerPreguntas;
+import Metodos.Validacion;
 import Cargadores.DataBase;
 
 public class LateralDer extends JPanel implements ActionListener {
@@ -25,7 +26,6 @@ public class LateralDer extends JPanel implements ActionListener {
     // Panel principal
     private JPanel  oeste, este;
     // Lado Negro
-    private EscogerPreguntas ep;
     private String palabra;
     private JTextField [] respuestas;
     private JButton[] enviar;
@@ -37,9 +37,15 @@ public class LateralDer extends JPanel implements ActionListener {
     private String[] respuesta;
     // public int i;
     private JTextField [][] textField;
+    Hola va = new Hola();
     int z;
+    String palabraClave;
     // Metodos
-    private DataBase datos;
+    private DataBase db;
+    private String[] p = new String [10];
+    public LateralDer(DataBase db) {
+        db = db;
+    }
 
     public LateralDer() {
 
@@ -67,8 +73,6 @@ public class LateralDer extends JPanel implements ActionListener {
         // LLenando lado izquiedo, lado oeste
         enviar = new JButton[Constantes.FILAS];
 
-        ep = new EscogerPreguntas(); // <-- Ya cargo las preguntas
-        ep.setPreguntas();
         time = new JLabel("Time: 0");
 
         jp = new JPanel();
@@ -143,27 +147,35 @@ public class LateralDer extends JPanel implements ActionListener {
     // Ver si la palabra esta bien escrita
 
     // Comparar la palabra clave con la palabra que se tiene(escrita por el usuario)
-    public void compararPalabras(int i) {
-
-        ep = new EscogerPreguntas();
-
-        String palabraClave = ep.getRespuestas(i);
-        String palabraUsuario = respuestas[i].getText();
-
-        if (palabraClave.equals(palabraUsuario)) {
-            System.out.println("Son iguales");
-        } else {
-            System.out.println("No son iguales");
+    public void compararPalabras() {
+        // db.getRespuesta(i);
+        db = new DataBase();
+        // palabraClave = db.getRespuesta(i);
+        try {
+            // System.out.println(db.getIndex(i));
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
         }
-    }
+        // String palabraUsuario = respuestas[i].getText();
 
+        // if (palabraClave.equals(palabraUsuario)) {
+        //     System.out.println("Son iguales");
+        // } else {
+        //     System.out.println("No son iguales");
+        // }
+    }
     @Override
     public synchronized void actionPerformed (ActionEvent e) {
+        db = new DataBase();
         if (e.getSource() == enviar[0]) {
             palabra = respuestas[0].getText(); // <-- Esto setea la palabra
-            textField[0][0].setText(respuestas[0].getText());
+            // textField[0][0].setText(respuestas[0].getText());
             // dividirResp();
-            compararPalabras(0);
+            // LateralIzq izq = new LateralIzq();
+            // izq.result();
+            // va.imprimir();
+            // va.setResp(0, palabra);
+
             notify();
             setVisible(true);
         } else if (e.getSource() == enviar[1]) {

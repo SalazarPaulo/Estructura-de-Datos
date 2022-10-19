@@ -27,6 +27,7 @@ public class LateralIzq extends JPanel {
 
     public int i = 0;
     EscogerPreguntas ep = new EscogerPreguntas();
+    Validacion v = new Validacion();
     int[] indice = new int[10];
 
     public LateralIzq() {
@@ -40,6 +41,7 @@ public class LateralIzq extends JPanel {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 ep.setPreguntas();
+                ep.imprimir();
                 for (i = 0; i < Constantes.FILAS; i++) {
                     System.out.println(ep.getPreguntas(i));
                     // J_Label.setText(ep.getPreguntas(i));
