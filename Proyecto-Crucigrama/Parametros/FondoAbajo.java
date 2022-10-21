@@ -1,31 +1,23 @@
 package Parametros;
 
-import java.awt.Container;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.*;
 
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JFrame;
 import javax.swing.SwingConstants;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
-import javax.swing.*;
 
 import Metodos.*;
 public class FondoAbajo extends JPanel implements ActionListener {
 
-    LateralIzq datos = new LateralIzq();
-    JButton reiniciar, guardar, cambiar, validar;
     public int i;
-    Botones botones;
-    JPanel contentpane;
+    private LateralIzq datos = new LateralIzq();
+    private JButton reiniciar, guardar, cambiar, validar;
+    private Botones botones;
+    private JPanel contentpane;
 
     public FondoAbajo() {
 

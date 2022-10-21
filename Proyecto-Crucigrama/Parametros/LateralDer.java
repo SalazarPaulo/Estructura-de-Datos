@@ -17,35 +17,20 @@ import javax.swing.SwingConstants;
 import javax.xml.crypto.Data;
 import javax.swing.*;
 
-import Metodos.EscogerPreguntas;
-import Metodos.Validacion;
-import Cargadores.DataBase;
+import Cargadores.Posiciones;
 
 public class LateralDer extends JPanel implements ActionListener {
 
-    // Panel principal
+
+    public int i, z = 0;
+    private String[] respuesta;
     private JPanel  oeste, este;
-    // Lado Negro
-    private String palabra;
-    private JTextField [] respuestas;
-    private JButton[] enviar;
-    public int i;
     private JPanel contentpane, jp, south;
     private JLabel time;
-    // private EscogerPreguntas ep;
-    // Lado Blanco
-    private String[] respuesta;
-    // public int i;
+    private JButton[] enviar;
+    private JTextField [] respuestas;
     private JTextField [][] textField;
-    Hola va = new Hola();
-    int z;
-    String palabraClave;
-    // Metodos
-    private DataBase db;
-    private String[] p = new String [10];
-    public LateralDer(DataBase db) {
-        db = db;
-    }
+    private int[] posicion;
 
     public LateralDer() {
 
@@ -64,8 +49,8 @@ public class LateralDer extends JPanel implements ActionListener {
         oeste.setLayout(new BorderLayout(2, 6));
         oeste.setBackground(Color.DARK_GRAY);
         oeste.setBorder(BorderFactory.createMatteBorder(4,4,4,4, Color.BLACK));
-        oeste.setMinimumSize(new Dimension((int) (Constantes.WIDTH/2), 50));
-        oeste.setPreferredSize(new Dimension((int) (Constantes.WIDTH/2), 50));
+        oeste.setMinimumSize(new Dimension((int) (Constantes.WIDTH/4), 50));
+        oeste.setPreferredSize(new Dimension((int) (Constantes.WIDTH/4), 50));
 
         this.add(oeste, BorderLayout.WEST);
         this.add(este, BorderLayout.CENTER);
@@ -85,30 +70,29 @@ public class LateralDer extends JPanel implements ActionListener {
         south.setLayout(null);
         south.setBackground(Color.DARK_GRAY);
 
-        contentpane.setMinimumSize(new Dimension((int) (Constantes.WIDTH/4), 38));
-        contentpane.setPreferredSize(new Dimension((int) (Constantes.WIDTH/4), 38));
-        jp.setMinimumSize(new Dimension((int) (Constantes.WIDTH/4), 348)); //543
-        jp.setPreferredSize(new Dimension((int) (Constantes.WIDTH/4), 348));
-        south.setMinimumSize(new Dimension((int) (Constantes.WIDTH/4), 30));
-        south.setPreferredSize(new Dimension((int) (Constantes.WIDTH/4), 30));
+        contentpane.setMinimumSize(new Dimension((int) (Constantes.WIDTH/4), 10));
+        contentpane.setPreferredSize(new Dimension((int) (Constantes.WIDTH/4), 10));
+        jp.setMinimumSize(new Dimension((int) (Constantes.WIDTH/5), 406)); //543
+        jp.setPreferredSize(new Dimension((int) (Constantes.WIDTH/5), 406));
+        south.setMinimumSize(new Dimension((int) (Constantes.WIDTH/4), 10));
+        south.setPreferredSize(new Dimension((int) (Constantes.WIDTH/4), 10));
 
         oeste.add(contentpane, BorderLayout.NORTH);
         oeste.add(jp, BorderLayout.CENTER);
         oeste.add(south, BorderLayout.SOUTH);
-
         respuestas = new JTextField [Constantes.FILAS];
 
         for (i = 0; i < Constantes.FILAS; i++) {
             respuestas[i] = new JTextField(10);
             // Boton Enviar
-            enviar[i] = new JButton("Enviar Respuestas");
+            enviar[i] = new JButton("Validar");
             enviar[i].setHorizontalAlignment(SwingConstants.LEFT);
             enviar[i].setBounds(10, 10, 50, 50);
+            enviar[i].setMinimumSize(new Dimension((int) (Constantes.WIDTH/5), 5));
             enviar[i].setPreferredSize(new java.awt.Dimension(10, 10));
             enviar[i].setFont(new Font("Times New Roman", Font.BOLD, 15));
             enviar[i].addActionListener(this);
             jp.add(respuestas[i]);
-            jp.add(new JButton("Cambiar Pregunta"));
             jp.add(enviar[i]);
         }
 
@@ -127,69 +111,196 @@ public class LateralDer extends JPanel implements ActionListener {
                 este.add(textField[i][j]);
             }
     }
-    // Se encarga de dividir la palabra
-    public void dividirResp () {
 
-        respuesta = new String[Constantes.FILAS];
-        // respuesta = new String[palabra.length()];
-        try {
-            for (i = 0; i < respuesta.length; i++) {
-                respuesta[i] = palabra.substring(i, i+1);
-                // System.out.println(respuesta[i]);
-                textField[i][i].setText(respuesta[i]);
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
-        }
-    }
-    // imprimir la palabra en el crucigrama
     // Ver donde colocar la palabra en el crucigrama
-    // Ver si la palabra esta bien escrita
-
-    // Comparar la palabra clave con la palabra que se tiene(escrita por el usuario)
-    public void compararPalabras() {
-        // db.getRespuesta(i);
-        db = new DataBase();
-        // palabraClave = db.getRespuesta(i);
-        try {
-            // System.out.println(db.getIndex(i));
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
+    public void colocarPalabra (String palabra) {
+        switch(palabra) {
+            case "expectativa":
+            for (i = 0; i < palabra.length(); i++)
+                textField[0][i].setText(palabra.substring(i, i+1));
+            break;
+            case "fracaso":
+            for (i = 0; i < palabra.length(); i++)
+                textField[i+13][0].setText(palabra.substring(i, i+1));
+            break;
+            case "alcance":
+            for (i = 0; i < palabra.length(); i++)
+                textField[15][i].setText(palabra.substring(i, i+1));
+            break;
+            case "proceso":
+            for (i = 0; i < palabra.length(); i++)
+                textField[i+4][1].setText(palabra.substring(i, i+1));
+            break;
+            case "recursoshumanos":
+            for (i = 0; i < palabra.length(); i++)
+                textField[8][0+i].setText(palabra.substring(i, i+1));
+            break;
+            case "costosdirectos":
+            for (i = 0; i < palabra.length(); i++)
+                textField[6][0+i].setText(palabra.substring(i, i+1));
+            break;
+            case "buses":
+            for (i = 0; i < palabra.length(); i++)
+                textField[2+i][5].setText(palabra.substring(i, i+1));
+            break;
+            case "comun":
+            for (i = 0; i < palabra.length(); i++)
+                textField[3][2+i].setText(palabra.substring(i, i+1));
+            break;
+            case "adquisiciones":
+            for (i = 0; i < palabra.length(); i++)
+                textField[17][0+i].setText(palabra.substring(i, i+1));
+            break;
+            case "iso":
+            for (i = 0; i < palabra.length(); i++)
+                textField[17+i][4].setText(palabra.substring(i, i+1));
+            break;
+            case "integracion":
+            for (i = 0; i < palabra.length(); i++)
+                textField[13][3+i].setText(palabra.substring(i, i+1));
+            break;
+            case "costes":
+            for (i = 0; i < palabra.length(); i++)
+                textField[3][8+i].setText(palabra.substring(i, i+1));
+            break;
+            case "analisis":
+            for (i = 0; i < palabra.length(); i++)
+                textField[11][7+i].setText(palabra.substring(i, i+1));
+            break;
+            case "actividades":
+            for (i = 0; i < palabra.length(); i++)
+                textField[8+i][11].setText(palabra.substring(i, i+1));
+            break;
+            case "materiales":
+            for (i = 0; i < palabra.length(); i++)
+                textField[1][10+i].setText(palabra.substring(i, i+1));
+            break;
+            case "tiempos":
+            for (i = 0; i < palabra.length(); i++)
+                textField[1+i][12].setText(palabra.substring(i, i+1));
+            break;
+            case "alquiler":
+            for (i = 0; i < palabra.length(); i++)
+                textField[15][11+i].setText(palabra.substring(i, i+1));
+            break;
+            case "canlidad":
+            for (i = 0; i < palabra.length(); i++)
+                textField[12+i][15].setText(palabra.substring(i, i+1));
+            break;
+            case "comunicaciones":
+            for (i = 0; i < palabra.length(); i++)
+                textField[3+i][17].setText(palabra.substring(i, i+1));
+            break;
+            case "redes":
+            for (i = 0; i < palabra.length(); i++)
+                textField[15+i][18].setText(palabra.substring(i, i+1));
+            break;
         }
-        // String palabraUsuario = respuestas[i].getText();
-
-        // if (palabraClave.equals(palabraUsuario)) {
-        //     System.out.println("Son iguales");
-        // } else {
-        //     System.out.println("No son iguales");
-        // }
     }
+    // Validacion final de todo el crucigrama
+
     @Override
     public synchronized void actionPerformed (ActionEvent e) {
-        db = new DataBase();
+        // String palabra;
         if (e.getSource() == enviar[0]) {
-            palabra = respuestas[0].getText(); // <-- Esto setea la palabra
-            // textField[0][0].setText(respuestas[0].getText());
-            // dividirResp();
-            // LateralIzq izq = new LateralIzq();
-            // izq.result();
-            // va.imprimir();
-            // va.setResp(0, palabra);
-
+            // if (respuestas[0].getText().equals("Constantes.J_Respuesta01.getText()"))
+                colocarPalabra(respuestas[0].getText());
             notify();
             setVisible(true);
+
         } else if (e.getSource() == enviar[1]) {
-            // respuestas[2].setText(respuestas[1].getText());
+            // if (respuestas[1].getText().equals("Constantes.J_Respuesta02.getText()"))
+            colocarPalabra(respuestas[1].getText());
             notify();
             setVisible(true);
         } else if (e.getSource() == enviar[2]) {
-            // botones.hacerAccionB(2);
+            // if (respuestas[2].getText().equals("Constantes.J_Respuesta03.getText()"))
+            colocarPalabra(respuestas[2].getText());
             notify();
             setVisible(true);
         }  else if (e.getSource() == enviar[3]) {
+            // if (respuestas[3].getText().equals("Constantes.J_Respuesta04.getText()"))
+            colocarPalabra(respuestas[3].getText());
             notify();
             setVisible(true);
         }  else if (e.getSource() == enviar[4]) {
+            // if (respuestas[4].getText().equals("Constantes.J_Respuesta05.getText()"))
+            colocarPalabra(respuestas[4].getText());
+            notify();
+            setVisible(true);
+        }  else if (e.getSource() == enviar[5]) {
+            // if (respuestas[5].getText().equals("Constantes.J_Respuesta06.getText()"))
+            colocarPalabra(respuestas[5].getText());
+            notify();
+            setVisible(true);
+        }  else if (e.getSource() == enviar[6]) {
+            // if (respuestas[6].getText().equals("Constantes.J_Respuesta07.getText()"))
+            colocarPalabra(respuestas[6].getText());
+            notify();
+            setVisible(true);
+        }  else if (e.getSource() == enviar[7]) {
+            // if (respuestas[7].getText().equals("Constantes.J_Respuesta08.getText()"))
+            colocarPalabra(respuestas[7].getText());
+            notify();
+            setVisible(true);
+        }  else if (e.getSource() == enviar[8]) {
+            // if (respuestas[8].getText().equals("Constantes.J_Respuesta09.getText()"))
+            colocarPalabra(respuestas[8].getText());
+            notify();
+            setVisible(true);
+        }  else if (e.getSource() == enviar[9]) {
+            // if (respuestas[9].getText().equals("Constantes.J_Respuesta10.getText()"))
+            colocarPalabra(respuestas[9].getText());
+            notify();
+            setVisible(true);
+        }  else if (e.getSource() == enviar[10]) {
+            // if (respuestas[10].getText().equals("Constantes.J_Respuesta11.getText()"))
+            colocarPalabra(respuestas[10].getText());
+            notify();
+            setVisible(true);
+        }  else if (e.getSource() == enviar[11]) {
+            // if (respuestas[11].getText().equals("Constantes.J_Respuesta12.getText()"))
+            colocarPalabra(respuestas[11].getText());
+            notify();
+            setVisible(true);
+        }  else if (e.getSource() == enviar[12]) {
+            // if (respuestas[12].getText().equals("Constantes.J_Respuesta13.getText()"))
+            colocarPalabra(respuestas[12].getText());
+            notify();
+            setVisible(true);
+        }  else if (e.getSource() == enviar[13]) {
+            // if (respuestas[13].getText().equals("Constantes.J_Respuesta14.getText()"))
+            colocarPalabra(respuestas[13].getText());
+            notify();
+            setVisible(true);
+        }  else if (e.getSource() == enviar[14]) {
+            // if (respuestas[14].getText().equals("Constantes.J_Respuesta15.getText()"))
+            colocarPalabra(respuestas[14].getText());
+            notify();
+            setVisible(true);
+        }  else if (e.getSource() == enviar[15]) {
+            // if (respuestas[15].getText().equals("Constantes.J_Respuesta16.getText()"))
+            colocarPalabra(respuestas[15].getText());
+            notify();
+            setVisible(true);
+        }  else if (e.getSource() == enviar[16]) {
+            // if (respuestas[16].getText().equals("Constantes.J_Respuesta17.getText()"))
+            colocarPalabra(respuestas[16].getText());
+            notify();
+            setVisible(true);
+        }  else if (e.getSource() == enviar[17]) {
+            // if (respuestas[17].getText().equals("Constantes.J_Respuesta18.getText()"))
+            colocarPalabra(respuestas[17].getText());
+            notify();
+            setVisible(true);
+        }  else if (e.getSource() == enviar[18]) {
+            // if (respuestas[18].getText().equals("Constantes.J_Respuesta19.getText()"))
+            colocarPalabra(respuestas[18].getText());
+            notify();
+            setVisible(true);
+        }  else if (e.getSource() == enviar[19]) {
+            // if (respuestas[19].getText().equals("Constantes.J_Respuesta20.getText()"))
+            colocarPalabra(respuestas[19].getText());
             notify();
             setVisible(true);
         }
