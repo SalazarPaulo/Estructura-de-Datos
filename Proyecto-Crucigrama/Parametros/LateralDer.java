@@ -14,10 +14,11 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
 import javax.xml.crypto.Data;
 import javax.swing.*;
 
-import Cargadores.Posiciones;
+import Cargadores.*;
 
 public class LateralDer extends JPanel implements ActionListener {
 
@@ -31,6 +32,8 @@ public class LateralDer extends JPanel implements ActionListener {
     private JTextField [] respuestas;
     private JTextField [][] textField;
     private int[] posicion;
+    private Border border;
+    private Color color;
 
     public LateralDer() {
 
@@ -114,86 +117,148 @@ public class LateralDer extends JPanel implements ActionListener {
 
     // Ver donde colocar la palabra en el crucigrama
     public void colocarPalabra (String palabra) {
+        color = new Color(240, 240, 240);
+        border = BorderFactory.createLineBorder(Color.BLACK, 1);
         switch(palabra) {
             case "expectativa":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[0][i].setText(palabra.substring(i, i+1));
+                textField[0][i].setBorder(border);
+                textField[0][i].setBackground(color);
+            }
             break;
             case "fracaso":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[i+13][0].setText(palabra.substring(i, i+1));
+                textField[i+13][0].setBorder(border);
+                textField[i+13][0].setBackground(color);
+            }
             break;
             case "alcance":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[15][i].setText(palabra.substring(i, i+1));
+                textField[15][i].setBorder(border);
+                textField[15][i].setBackground(color);
+            }
             break;
             case "proceso":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[i+4][1].setText(palabra.substring(i, i+1));
+                textField[i+4][1].setBorder(border);
+                textField[i+4][1].setBackground(color);
+            }
             break;
             case "recursoshumanos":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[8][0+i].setText(palabra.substring(i, i+1));
+                textField[8][0+i].setBorder(border);
+                textField[8][0+i].setBackground(color);
+            }
             break;
             case "costosdirectos":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[6][0+i].setText(palabra.substring(i, i+1));
+                textField[6][0+i].setBorder(border);
+                textField[6][0+i].setBackground(color);
+            }
             break;
             case "buses":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[2+i][5].setText(palabra.substring(i, i+1));
+                textField[2+i][5].setBorder(border);
+                textField[2+i][5].setBackground(color);
+            }
             break;
             case "comun":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++){
                 textField[3][2+i].setText(palabra.substring(i, i+1));
+                textField[3][2+i].setBorder(border);
+                textField[3][2+i].setBackground(color);
+            }
             break;
             case "adquisiciones":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++){
                 textField[17][0+i].setText(palabra.substring(i, i+1));
+                textField[17][0+i].setBorder(border);
+                textField[17][0+i].setBackground(color);
+            }
             break;
             case "iso":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[17+i][4].setText(palabra.substring(i, i+1));
+                textField[17+i][4].setBorder(border);
+                textField[17+i][4].setBackground(color);
+            }
             break;
             case "integracion":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[13][3+i].setText(palabra.substring(i, i+1));
+                textField[13][3+i].setBorder(border);
+                textField[13][3+i].setBackground(color);
+            }
             break;
             case "costes":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++){
                 textField[3][8+i].setText(palabra.substring(i, i+1));
+                textField[3][8+i].setBorder(border);
+                textField[3][8+i].setBackground(color);
+            }
             break;
             case "analisis":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[11][7+i].setText(palabra.substring(i, i+1));
+                textField[11][7+i].setBorder(border);
+                textField[11][7+i].setBackground(color);
+            }
             break;
             case "actividades":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[8+i][11].setText(palabra.substring(i, i+1));
+                textField[8+i][11].setBorder(border);
+                textField[8+i][11].setBackground(color);
+            }
             break;
             case "materiales":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[1][10+i].setText(palabra.substring(i, i+1));
+                textField[1][10+i].setBorder(border);
+                textField[1][10+i].setBackground(color);
+            }
             break;
             case "tiempos":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[1+i][12].setText(palabra.substring(i, i+1));
+                textField[1+i][12].setBorder(border);
+                textField[1+i][12].setBackground(color);
+            }
             break;
             case "alquiler":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[15][11+i].setText(palabra.substring(i, i+1));
+                textField[15][11+i].setBorder(border);
+                textField[15][11+i].setBackground(color);
+            }
             break;
             case "canlidad":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[12+i][15].setText(palabra.substring(i, i+1));
+                textField[12+i][15].setBorder(border);
+                textField[12+i][15].setBackground(color);
+            }
             break;
             case "comunicaciones":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[3+i][17].setText(palabra.substring(i, i+1));
+                textField[3+i][17].setBorder(border);
+                textField[3+i][17].setBackground(color);
+            }
             break;
             case "redes":
-            for (i = 0; i < palabra.length(); i++)
+            for (i = 0; i < palabra.length(); i++) {
                 textField[15+i][18].setText(palabra.substring(i, i+1));
+                textField[15+i][18].setBorder(border);
+                textField[15+i][18].setBackground(color);
+            }
             break;
         }
     }

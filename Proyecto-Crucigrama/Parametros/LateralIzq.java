@@ -2,6 +2,7 @@ package Parametros;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.BorderLayout;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -15,11 +16,19 @@ public class LateralIzq extends JPanel {
 
     public int i = 0;
     private EscogerPreguntas ep = new EscogerPreguntas();
+    private JPanel top, bot;
 
     public LateralIzq() {
+        this.setLayout(new BorderLayout());
+        top = new JPanel();
+        bot = new JPanel();
+        top.setLayout(new GridLayout(21, 1));
+        bot.setLayout(new GridLayout(1, 2));
+        this.add(top, BorderLayout.CENTER);
+        this.add(bot, BorderLayout.SOUTH);
 
         // ep.setPreguntas();
-        this.setLayout(new GridLayout(22, 1));
+        // this.setLayout(new GridLayout(22, 1));
 
         JButton J_Button = new JButton("Change Label");
         J_Button.setBounds(50, 105, 173, 50);
@@ -77,29 +86,33 @@ public class LateralIzq extends JPanel {
                 }
             }
         });
+        JButton J_Button01 = new JButton("Change Label");
+        J_Button01.setBounds(50, 105, 173, 50);
+
         Constantes.J_Label01.setBorder(BorderFactory.createLineBorder(Color.blue));
 
-        this.add(Constantes.J_Label);
-        this.add(Constantes.J_Label01);
-        this.add(Constantes.J_Label02);
-        this.add(Constantes.J_Label03);
-        this.add(Constantes.J_Label04);
-        this.add(Constantes.J_Label05);
-        this.add(Constantes.J_Label06);
-        this.add(Constantes.J_Label07);
-        this.add(Constantes.J_Label08);
-        this.add(Constantes.J_Label09);
-        this.add(Constantes.J_Label10);
-        this.add(Constantes.J_Label11);
-        this.add(Constantes.J_Label12);
-        this.add(Constantes.J_Label13);
-        this.add(Constantes.J_Label14);
-        this.add(Constantes.J_Label15);
-        this.add(Constantes.J_Label16);
-        this.add(Constantes.J_Label17);
-        this.add(Constantes.J_Label18);
-        this.add(Constantes.J_Label19);
-        this.add(Constantes.J_Label20);
-        this.add(J_Button);
+        top.add(Constantes.J_Label);
+        top.add(Constantes.J_Label01);
+        top.add(Constantes.J_Label02);
+        top.add(Constantes.J_Label03);
+        top.add(Constantes.J_Label04);
+        top.add(Constantes.J_Label05);
+        top.add(Constantes.J_Label06);
+        top.add(Constantes.J_Label07);
+        top.add(Constantes.J_Label08);
+        top.add(Constantes.J_Label09);
+        top.add(Constantes.J_Label10);
+        top.add(Constantes.J_Label11);
+        top.add(Constantes.J_Label12);
+        top.add(Constantes.J_Label13);
+        top.add(Constantes.J_Label14);
+        top.add(Constantes.J_Label15);
+        top.add(Constantes.J_Label16);
+        top.add(Constantes.J_Label17);
+        top.add(Constantes.J_Label18);
+        top.add(Constantes.J_Label19);
+        top.add(Constantes.J_Label20);
+        bot.add(J_Button);
+        bot.add(J_Button01);
     }
 }
