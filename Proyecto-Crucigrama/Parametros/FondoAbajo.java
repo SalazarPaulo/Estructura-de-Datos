@@ -16,12 +16,9 @@ public class FondoAbajo extends JPanel implements ActionListener {
     public int i;
     private LateralIzq datos = new LateralIzq();
     private JButton reiniciar, guardar, cambiar, validar;
-    private Botones botones;
     private JPanel contentpane;
 
     public FondoAbajo() {
-
-        botones = new Botones();
 
         // Boton Cambiar Crucigrama
         cambiar = new JButton("Cambiar Crucigrama");

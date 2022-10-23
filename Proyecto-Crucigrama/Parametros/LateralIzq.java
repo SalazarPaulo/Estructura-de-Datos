@@ -30,7 +30,7 @@ public class LateralIzq extends JPanel {
         // ep.setPreguntas();
         // this.setLayout(new GridLayout(22, 1));
 
-        JButton J_Button = new JButton("Change Label");
+        JButton J_Button = new JButton("Modulo #1");
         J_Button.setBounds(50, 105, 173, 50);
         J_Button.addActionListener(new ActionListener() {
             @Override
@@ -86,7 +86,7 @@ public class LateralIzq extends JPanel {
                 }
             }
         });
-        JButton J_Button01 = new JButton("Change Label");
+        JButton J_Button01 = new JButton("Modulo #2");
         J_Button01.setBounds(50, 105, 173, 50);
 
         Constantes.J_Label01.setBorder(BorderFactory.createLineBorder(Color.blue));
@@ -114,5 +114,8 @@ public class LateralIzq extends JPanel {
         top.add(Constantes.J_Label20);
         bot.add(J_Button);
         bot.add(J_Button01);
+    }
+    public void cambiar() {
+        
     }
 }
