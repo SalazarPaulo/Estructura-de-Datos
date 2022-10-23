@@ -4,8 +4,8 @@ import javax.swing.JLabel;
 
 public class Constantes {
 
-    public static final int COLUMNAS = 23;
-    public static final int FILAS = 23;
+    public static final int COLUMNAS = 25;
+    public static final int FILAS = 25;
 
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;
@@ -52,7 +52,5 @@ public class Constantes {
     public static final JLabel J_Respuesta18 = new JLabel("NO.18", JLabel.LEFT);
     public static final JLabel J_Respuesta19 = new JLabel("NO.19", JLabel.LEFT);
     public static final JLabel J_Respuesta20 = new JLabel("NO.20", JLabel.LEFT);
-
-    public static final String  Respuesta01 = J_Respuesta01.getText();
 
 }

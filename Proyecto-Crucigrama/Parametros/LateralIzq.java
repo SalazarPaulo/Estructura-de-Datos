@@ -29,6 +29,8 @@ public class LateralIzq extends JPanel implements ItemListener {
         "MODULO #2: CRUCIGRAMA NO.2"};
     private boolean leido = true;
     private HashMap<Integer, String> opciones;
+    private LateralDer der;
+
     public LateralIzq() {
 
         this.setLayout(new BorderLayout());
@@ -41,6 +43,7 @@ public class LateralIzq extends JPanel implements ItemListener {
 
         JButton J_Button = new JButton("Generar");
         J_Button.setBounds(50, 105, 173, 50);
+        J_Button.setBorder(new BordeRedondeado(6));
         J_Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
@@ -58,6 +61,7 @@ public class LateralIzq extends JPanel implements ItemListener {
         lista = new JComboBox<String>(opc);
         lista.addItemListener(this);
 
+        Constantes.J_Label01.setBorder(new BordeRedondeado(6));
         Constantes.J_Label01.setBorder(BorderFactory.createLineBorder(Color.blue));
 
         top.add(Constantes.J_Label);
@@ -85,10 +89,13 @@ public class LateralIzq extends JPanel implements ItemListener {
         bot.add(lista);
     }
     public void itemStateChanged(ItemEvent e) {
+        der = new LateralDer();
         if (e.getSource() == lista) {
             String seleccionado=(String)lista.getSelectedItem();
-            if(seleccionado.equals("MODULO #1: CRUCIGRAMA NO.1"))
+            if(seleccionado.equals("MODULO #1: CRUCIGRAMA NO.1")) {
                 cambiar(0);
+                der.setColorCasillas(0);
+            }
             if(seleccionado.equals("MODULO #1: CRUCIGRAMA NO.2"))
                 cambiar(1);
             if(seleccionado.equals("MODULO #2: CRUCIGRAMA NO.1"))

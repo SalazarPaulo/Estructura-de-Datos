@@ -24,7 +24,7 @@ public class Crucigrama extends JFrame {
     private JFrame frame;
     private JPanel jp1, jp2, jp3;
     private ImageIcon icono;
-    Toolkit t = Toolkit.getDefaultToolkit();
+    private Toolkit t = Toolkit.getDefaultToolkit();
 
     public void start() {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

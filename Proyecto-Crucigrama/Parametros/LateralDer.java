@@ -91,21 +91,27 @@ public class LateralDer extends JPanel implements ActionListener {
             jp.add(respuestas[i]);
             jp.add(enviar[i]);
         }
-
-        south.add(new JLabel("Score: "));
-        south.add(new JLabel(""));
-        south.add(new JLabel("Time: "));
-        south.add(new JLabel(""));
-
         // LLenando lado derecho, lado centro
         textField = new JTextField [Constantes.FILAS][Constantes.COLUMNAS];
         for (int i=0;i<Constantes.FILAS;i++)
             for (int j=0;j<Constantes.COLUMNAS;j++) {
                 textField[i][j] = new JTextField(1);
+                textField[i][j].setBackground(Color.BLACK);
                 textField[i][j].setFont(new Font("Times New Roman", Font.BOLD, 15));
                 textField[i][j].setHorizontalAlignment(SwingConstants.CENTER);
                 este.add(textField[i][j]);
             }
+    }
+    public void setColorCasillas(int cruci) {
+        for (int j=0;j<Constantes.COLUMNAS;j++) {
+            textField[i][j].setBackground(Color.BLACK);
+            textField[i][j].setText(null);
+        }
+        for (int j=0;j<Constantes.COLUMNAS;j++) {
+            textField[i][j].setBackground(Color.WHITE);
+            textField[i][j].setText(null);
+        }
+
     }
 
     // Ver donde colocar la palabra en el crucigrama
