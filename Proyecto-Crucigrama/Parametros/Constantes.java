@@ -4,8 +4,8 @@ import javax.swing.JLabel;
 
 public class Constantes {
 
-    public static final int COLUMNAS = 20;
-    public static final int FILAS = 20;
+    public static final int COLUMNAS = 23;
+    public static final int FILAS = 23;
 
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;

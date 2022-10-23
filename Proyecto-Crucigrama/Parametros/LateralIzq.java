@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.HashMap;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -27,8 +28,9 @@ public class LateralIzq extends JPanel implements ItemListener {
         "MODULO #2: CRUCIGRAMA NO.1",
         "MODULO #2: CRUCIGRAMA NO.2"};
     private boolean leido = true;
-
+    private HashMap<Integer, String> opciones;
     public LateralIzq() {
+
         this.setLayout(new BorderLayout());
         top = new JPanel();
         bot = new JPanel();
@@ -97,22 +99,19 @@ public class LateralIzq extends JPanel implements ItemListener {
         }
     }
     public void cambiar(int opc) {
+
         String text = "";
         ep.setPreguntas(opc);
-        switch(opc) {
-            case 0:
-                text = "MODULO #1: CRUCIGRAMA NO.1";
-            break;
-            case 1:
-                text = "MODULO #1: CRUCIGRAMA NO.2";
-            break;
-            case 2:
-                text = "MODULO #2: CRUCIGRAMA NO.1";
-            break;
-            case 3:
-                text = "MODULO #2: CRUCIGRAMA NO.2";
-            break;
-        }
+        opciones = new HashMap<Integer, String>() {
+            {
+                put(0, "MODULO #1: CRUCIGRAMA NO.1");
+                put(1, "MODULO #1: CRUCIGRAMA NO.2");
+                put(2, "MODULO #2: CRUCIGRAMA NO.1");
+                put(3, "MODULO #2: CRUCIGRAMA NO.2");
+            }
+        };
+        text = opciones.get(opc);
+
         Constantes.J_Label.setText(text);
         Constantes.J_Label01.setText(ep.getPreguntas(0));
         Constantes.J_Label02.setText(ep.getPreguntas(1));
