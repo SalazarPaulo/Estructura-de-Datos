@@ -5,9 +5,8 @@ import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Dimension;
-import java.awt.event.KeyListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -15,23 +14,18 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
-import javax.xml.crypto.Data;
-import javax.swing.*;
+import javax.swing.BorderFactory;
 
-import Cargadores.*;
+import Metodos.BordeRedondeado;
 
 public class LateralDer extends JPanel implements ActionListener {
 
-
     public int i, z = 0;
-    private String[] respuesta;
     private JPanel  oeste, este;
     private JPanel contentpane, jp, south;
-    private JLabel time;
     private JButton[] enviar;
     private JTextField [] respuestas;
     private JTextField [][] textField;
-    private int[] posicion;
     private Border border;
     private Color color;
 
@@ -61,8 +55,6 @@ public class LateralDer extends JPanel implements ActionListener {
         // LLenando lado izquiedo, lado oeste
         enviar = new JButton[Constantes.FILAS];
 
-        time = new JLabel("Time: 0");
-
         jp = new JPanel();
         jp.setLayout(new GridLayout(Constantes.FILAS,1, 3,0));
         jp.setBackground(Color.GRAY);
@@ -89,11 +81,12 @@ public class LateralDer extends JPanel implements ActionListener {
             respuestas[i] = new JTextField(10);
             // Boton Enviar
             enviar[i] = new JButton("Validar");
-            enviar[i].setHorizontalAlignment(SwingConstants.LEFT);
+            enviar[i].setHorizontalAlignment(SwingConstants.CENTER);
             enviar[i].setBounds(10, 10, 50, 50);
             enviar[i].setMinimumSize(new Dimension((int) (Constantes.WIDTH/5), 5));
             enviar[i].setPreferredSize(new java.awt.Dimension(10, 10));
             enviar[i].setFont(new Font("Times New Roman", Font.BOLD, 15));
+            enviar[i].setBorder(new BordeRedondeado(6));
             enviar[i].addActionListener(this);
             jp.add(respuestas[i]);
             jp.add(enviar[i]);
@@ -120,145 +113,159 @@ public class LateralDer extends JPanel implements ActionListener {
         color = new Color(240, 240, 240);
         border = BorderFactory.createLineBorder(Color.BLACK, 1);
         switch(palabra) {
-            case "expectativa":
+            case "EXPECTATIVA":
             for (i = 0; i < palabra.length(); i++) {
                 textField[0][i].setText(palabra.substring(i, i+1));
                 textField[0][i].setBorder(border);
                 textField[0][i].setBackground(color);
             }
             break;
-            case "fracaso":
+            case "FRACASO":
             for (i = 0; i < palabra.length(); i++) {
                 textField[i+13][0].setText(palabra.substring(i, i+1));
                 textField[i+13][0].setBorder(border);
                 textField[i+13][0].setBackground(color);
             }
             break;
-            case "alcance":
+            case "ALCANCE":
             for (i = 0; i < palabra.length(); i++) {
                 textField[15][i].setText(palabra.substring(i, i+1));
                 textField[15][i].setBorder(border);
                 textField[15][i].setBackground(color);
             }
             break;
-            case "proceso":
+            case "PROCESO":
             for (i = 0; i < palabra.length(); i++) {
                 textField[i+4][1].setText(palabra.substring(i, i+1));
                 textField[i+4][1].setBorder(border);
                 textField[i+4][1].setBackground(color);
             }
             break;
-            case "recursoshumanos":
+            case "RECURSOSHUMANOS":
             for (i = 0; i < palabra.length(); i++) {
                 textField[8][0+i].setText(palabra.substring(i, i+1));
                 textField[8][0+i].setBorder(border);
                 textField[8][0+i].setBackground(color);
             }
             break;
-            case "costosdirectos":
+            case "COSTOSDIRECTOS":
             for (i = 0; i < palabra.length(); i++) {
                 textField[6][0+i].setText(palabra.substring(i, i+1));
                 textField[6][0+i].setBorder(border);
                 textField[6][0+i].setBackground(color);
             }
             break;
-            case "buses":
+            case "BUSES":
             for (i = 0; i < palabra.length(); i++) {
                 textField[2+i][5].setText(palabra.substring(i, i+1));
                 textField[2+i][5].setBorder(border);
                 textField[2+i][5].setBackground(color);
             }
             break;
-            case "comun":
+            case "COMUN":
             for (i = 0; i < palabra.length(); i++){
                 textField[3][2+i].setText(palabra.substring(i, i+1));
                 textField[3][2+i].setBorder(border);
                 textField[3][2+i].setBackground(color);
             }
             break;
-            case "adquisiciones":
+            case "ADQUISICIONES":
             for (i = 0; i < palabra.length(); i++){
                 textField[17][0+i].setText(palabra.substring(i, i+1));
                 textField[17][0+i].setBorder(border);
                 textField[17][0+i].setBackground(color);
             }
             break;
-            case "iso":
+            case "ISO":
             for (i = 0; i < palabra.length(); i++) {
                 textField[17+i][4].setText(palabra.substring(i, i+1));
                 textField[17+i][4].setBorder(border);
                 textField[17+i][4].setBackground(color);
             }
             break;
-            case "integracion":
+            case "INTEGRACION":
             for (i = 0; i < palabra.length(); i++) {
                 textField[13][3+i].setText(palabra.substring(i, i+1));
                 textField[13][3+i].setBorder(border);
                 textField[13][3+i].setBackground(color);
             }
             break;
-            case "costes":
+            case "COSTES":
             for (i = 0; i < palabra.length(); i++){
                 textField[3][8+i].setText(palabra.substring(i, i+1));
                 textField[3][8+i].setBorder(border);
                 textField[3][8+i].setBackground(color);
             }
             break;
-            case "analisis":
+            case "ANALISIS":
             for (i = 0; i < palabra.length(); i++) {
                 textField[11][7+i].setText(palabra.substring(i, i+1));
                 textField[11][7+i].setBorder(border);
                 textField[11][7+i].setBackground(color);
             }
             break;
-            case "actividades":
+            case "ACTIVIDADES":
             for (i = 0; i < palabra.length(); i++) {
                 textField[8+i][11].setText(palabra.substring(i, i+1));
                 textField[8+i][11].setBorder(border);
                 textField[8+i][11].setBackground(color);
             }
             break;
-            case "materiales":
+            case "MATERIALES":
             for (i = 0; i < palabra.length(); i++) {
                 textField[1][10+i].setText(palabra.substring(i, i+1));
                 textField[1][10+i].setBorder(border);
                 textField[1][10+i].setBackground(color);
             }
             break;
-            case "tiempos":
+            case "TIEMPOS":
             for (i = 0; i < palabra.length(); i++) {
                 textField[1+i][12].setText(palabra.substring(i, i+1));
                 textField[1+i][12].setBorder(border);
                 textField[1+i][12].setBackground(color);
             }
             break;
-            case "alquiler":
+            case "ALQUILER":
             for (i = 0; i < palabra.length(); i++) {
                 textField[15][11+i].setText(palabra.substring(i, i+1));
                 textField[15][11+i].setBorder(border);
                 textField[15][11+i].setBackground(color);
             }
             break;
-            case "canlidad":
+            case "CALIDAD":
             for (i = 0; i < palabra.length(); i++) {
                 textField[12+i][15].setText(palabra.substring(i, i+1));
                 textField[12+i][15].setBorder(border);
                 textField[12+i][15].setBackground(color);
             }
             break;
-            case "comunicaciones":
+            case "COMUNICACIONES":
             for (i = 0; i < palabra.length(); i++) {
                 textField[3+i][17].setText(palabra.substring(i, i+1));
                 textField[3+i][17].setBorder(border);
                 textField[3+i][17].setBackground(color);
             }
             break;
-            case "redes":
+            case "REDES":
             for (i = 0; i < palabra.length(); i++) {
                 textField[15+i][18].setText(palabra.substring(i, i+1));
                 textField[15+i][18].setBorder(border);
                 textField[15+i][18].setBackground(color);
             }
+            break;
+            case "PROYECTO":
+                for (i = 0; i < palabra.length(); i++) {
+                    textField[15+i][18].setText(palabra.substring(i, i+1));
+                    textField[15+i][18].setBorder(border);
+                    textField[15+i][18].setBackground(color);
+                }
+            break;
+            case "TEMPORAL":
+                for (i = 0; i < palabra.length(); i++) {
+                    textField[15+i][18].setText(palabra.substring(i, i+1));
+                    textField[15+i][18].setBorder(border);
+                    textField[15+i][18].setBackground(color);
+                }
             break;
         }
     }
@@ -269,7 +276,7 @@ public class LateralDer extends JPanel implements ActionListener {
         // String palabra;
         if (e.getSource() == enviar[0]) {
             // if (respuestas[0].getText().equals("Constantes.J_Respuesta01.getText()"))
-                colocarPalabra(respuestas[0].getText());
+                colocarPalabra(respuestas[0].getText().toUpperCase());
             notify();
             setVisible(true);
 

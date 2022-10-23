@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.BorderFactory;
 import javax.swing.border.LineBorder;
 import javax.swing.WindowConstants;
+import javax.swing.ImageIcon;
 
 import Parametros.LateralDer;
 import Parametros.LateralIzq;
@@ -17,18 +18,21 @@ import Parametros.FondoArriba;
 import Parametros.Constantes;
 
 public class Crucigrama extends JFrame {
-
+    
+    private FondoArriba arriba;
     private FondoAbajo abajo;
     private LateralIzq izq;
     private LateralDer der;
     private JFrame frame;
     private JPanel jp1, jp2, jp3, jp4;
     private JLabel top;
+    private ImageIcon icono;
 
     public Crucigrama(boolean state) {
 
         frame = new JFrame();
         abajo = new FondoAbajo();
+        arriba = new FondoArriba();
         izq = new LateralIzq();
         der = new LateralDer();
         top = new JLabel("Top");
@@ -77,7 +81,11 @@ public class Crucigrama extends JFrame {
         frame.add(jp1, BorderLayout.WEST);
         frame.add(jp2, BorderLayout.CENTER);
         frame.add(jp3, BorderLayout.NORTH);
-        // frame.add(jp4, BorderLayout.SOUTH);
+        frame.add(jp4, BorderLayout.SOUTH);
+
+        ////////-------- ADD FRAME --------//////////
+        icono= new ImageIcon(this.getClass().getResource("Assets/logoutp.png"));
+        frame.setIconImage(icono.getImage());
 
         frame.pack();
         frame.setVisible(state);
