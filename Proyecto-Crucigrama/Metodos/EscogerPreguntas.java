@@ -14,7 +14,7 @@ public class EscogerPreguntas extends DataBase {
     private Datos[] datos = db.getDatos();
 
     public void setPreguntas(int opcion) {
-        int z;
+        this.opcion = opcion;
         Switch = new HashMap<Integer,Integer>() {
             {
                 put(0, 0);
@@ -24,15 +24,10 @@ public class EscogerPreguntas extends DataBase {
             }
         };
         z = Switch.get(opcion);
-        preguntas[i] = i+z;
-        respuestas[i] = preguntas[i];
-        for(i = 1; i < preguntas.length; i++) {
+        System.out.println("Z: " + z + " Opcion: " + opcion);
+        for(i = 0; i < preguntas.length; i++) {
             preguntas[i] = i+z;
             respuestas[i] = preguntas[i];
-            for(j = 0; j < 1; j++) {
-                if(preguntas[i] == preguntas[j])
-                    i--;
-            }
         }
     }
     public int getOpcion() {

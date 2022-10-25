@@ -29,7 +29,6 @@ public class LateralIzq extends JPanel implements ItemListener {
         "MODULO #2: CRUCIGRAMA NO.2"};
     private boolean leido = true;
     private HashMap<Integer, String> opciones;
-    private LateralDer der;
 
     public LateralIzq() {
 
@@ -54,7 +53,7 @@ public class LateralIzq extends JPanel implements ItemListener {
                         leido = false;
                     }
                 } while (!leido);
-
+                System.out.println("-Z: " + z);
                 cambiar(z);
             }
         });
@@ -89,13 +88,10 @@ public class LateralIzq extends JPanel implements ItemListener {
         bot.add(lista);
     }
     public void itemStateChanged(ItemEvent e) {
-        der = new LateralDer();
         if (e.getSource() == lista) {
             String seleccionado=(String)lista.getSelectedItem();
-            if(seleccionado.equals("MODULO #1: CRUCIGRAMA NO.1")) {
+            if(seleccionado.equals("MODULO #1: CRUCIGRAMA NO.1"))
                 cambiar(0);
-                der.setColorCasillas(0);
-            }
             if(seleccionado.equals("MODULO #1: CRUCIGRAMA NO.2"))
                 cambiar(1);
             if(seleccionado.equals("MODULO #2: CRUCIGRAMA NO.1"))
