@@ -40,10 +40,10 @@ public class Constantes {
     public static final JLabel J_Respuesta06 = new JLabel("ISO", JLabel.LEFT);
     public static final JLabel J_Respuesta07 = new JLabel("ANALISIS", JLabel.LEFT);
     public static final JLabel J_Respuesta08 = new JLabel("FRACASO", JLabel.LEFT);
-    public static final JLabel J_Respuesta09 = new JLabel("MATERIALES", JLabel.LEFT);
+    public static final JLabel J_Respuesta09 = new JLabel("MATERIALES", JLabel.LEFT); // MATERIALES
     public static final JLabel J_Respuesta10 = new JLabel("ADQUISICIONES", JLabel.LEFT);
     public static final JLabel J_Respuesta11 = new JLabel("INTEGRACION", JLabel.LEFT);
-    public static final JLabel J_Respuesta12 = new JLabel("ALCANCE", JLabel.LEFT);
+    public static final JLabel J_Respuesta12 = new JLabel("ALCANCE", JLabel.LEFT); //ALCANCE
     public static final JLabel J_Respuesta13 = new JLabel("COMUNICACIONES", JLabel.LEFT);
     public static final JLabel J_Respuesta14 = new JLabel("RECURSOSHUMANOS", JLabel.LEFT);
     public static final JLabel J_Respuesta15 = new JLabel("TIEMPO", JLabel.LEFT);

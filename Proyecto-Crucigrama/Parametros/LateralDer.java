@@ -57,18 +57,15 @@ public class LateralDer extends JPanel implements ActionListener {
         Constantes.J_Respuesta19.getText(),
         Constantes.J_Respuesta20.getText()
     };
-
-    public void setCruci(int cruci) {
-        System.out.println("[1] Cruci: " + cruci);
-        this.cruci = cruci;
-        cargar(cruci);
-    }
+    private Color color1;
 
     public LateralDer(int cruci) {
 
-        this.setBackground(Color.RED);
+        color1 = new Color(247, 191, 190);
+
+        this.setBackground(color1);
         this.setLayout(new BorderLayout(8, 6));
-        this.setBorder(BorderFactory.createMatteBorder(4,4,4,4, Color.CYAN));
+        this.setBorder(BorderFactory.createMatteBorder(4,4,4,4, color1));
 
         este = new JPanel();
         este.setLayout(new GridLayout(Constantes.FILAS,Constantes.COLUMNAS));
@@ -154,11 +151,11 @@ public class LateralDer extends JPanel implements ActionListener {
                 textField[i][j].setHorizontalAlignment(SwingConstants.LEFT);
                 textField[i][j].setBackground(new Color(192, 255, 247));
                 textField[i][j].setEditable(false);
-                textField[i][j].setBorder(BorderFactory.createLineBorder(new Color(48, 48, 48), 1));
+                textField[i][j].setBorder(BorderFactory.createLineBorder(new Color(106, 194, 217), 1));
                 este.add(textField[i][j]);
             }
         this.cruci = cruci;
-        // cargar(cruci);
+        cargar(cruci);
     }
 
     // Ver donde colocar la palabra en el crucigrama
@@ -166,43 +163,43 @@ public class LateralDer extends JPanel implements ActionListener {
         int coordX, coordY, posicion, numCruci;
         posiciones = new HashMap<String, String>() {
             {   // MODULO 1 CRUCIGRAMA 1 // 0-19
-                put("PROCESO", "08 00 01 0");
-                put("ACTIVIDADES", "06 06 01 0");
-                put("ALQUILER", "02 04 02 0");
-                put("REDES","00 11 02 0");
-                put("COSTOSDIRECTOS","04 16 02 0");
-                put("ISO","15 05 02 0");
-                put("ANALISIS", "03 01 02 0");
-                put("FRACASO","16 00 01 0");
-                put("MATERIALES", "12 14 02 0");
-                put("ADQUISICIONES","08 18 02 0");
-                put("INTEGRACION","11 09 02 0");
-                put("ALCANCE","21 05 01 0");
-                put("COMUNICACIONES","11 00 01 0");
-                put("RECURSOSHUMANOS","09 00 01 0");
-                put("TIEMPO","19 16 01 0");
-                put("COSTES","02 19 02 0");
-                put("BUSES","01 08 01 0");
-                put("COMUN","05 01 01 0");
-                put("EXPECTATIVA","19 01 01 0");
+                put("PROCESO", "15 01 02 0"); // LISTO
+                put("ACTIVIDADES", "06 0    6 01 0"); // LISTO
+                put("ALQUILER", "02 04 02 0"); // ¿?
+                put("REDES","00 11 02 0"); // LSITO
+                put("COSTOSDIRECTOS","04 16 02 0"); // LISTO
+                put("ISO","15 05 02 0"); // LISTO
+                put("ANALISIS", "03 01 01 0"); // LISTO
+                put("FRACASO","16 00 01 0"); // LISTO
+                put("MATERIALES", "12 14 02 0"); // LISTO
+                put("ADQUISICIONES","08 18 02 0"); // LISTO
+                put("INTEGRACION","11 09 02 0"); // LISTO
+                put("ALCANCE","21 05 01 0"); // LISTO
+                put("COMUNICACIONES","11 00 01 0"); // LISTO
+                put("RECURSOSHUMANOS","09 00 01 0"); // LISTO
+                put("TIEMPO","19 16 01 0"); //LISTO
+                put("COSTES","02 19 02 0"); // LISTO
+                put("BUSES","01 08 01 0"); // LISTO
+                put("COMUN","05 01 01 0"); // LISTO
+                put("EXPECTATIVA","19 01 01 0"); // 
                 put("SERVICIOS","04 11 01 0"); //< ----
                 // MODULO 1 CRUCIGRAMA 2 // 20-39
-                put("PROYECTO","10 15 01 1");
-                put("TEMPORAL", "02 10 02 1");
-                put("HARDWARE","06 13 01 1");
-                put("PROYECTOFALLIDO", "12 07 01 1");
-                put("INTERFACES","00 02 01 1");
-                put("AUDITORIAS", "08 13 02 1");
-                put("ESTANDAR","14 07 02 1");
-                put("INVERTIR", "19 11 01 1");
-                put("ADMINISTRADOR","00 08 02 1");
-                put("CONSULTORIA", "07 02 01 1");
-                put("INDIRECTOS","21 03 01 1");
-                put("NECESIDADES", "05 02 02 1");
-                put("CONFLICTOS","15 09 02 1");
-                put("PRESUPUESTO", "15 09 02 1");
-                put("TECNOLOGICO","11 11 02 1");
-                put("FECHA", "02 14 02 1");
+                put("PROYECTO","10 15 01 1"); // LISTO
+                put("TEMPORAL", "02 10 02 1"); // LISTO
+                put("HARDWARE","06 13 01 1"); // LISTO
+                put("PROYECTOFALLIDO", "12 07 01 1"); // LISTO
+                put("INTERFACES","00 02 01 1"); // LISTO
+                put("AUDITORIAS", "08 13 02 1"); // LISTO
+                put("ESTANDAR","14 07 02 1"); // LISTO
+                put("INVERTIR", "19 11 01 1"); // LISTO
+                put("ADMINISTRADOR","00 08 02 1"); // LISTO
+                put("CONSULTORIA", "07 02 01 1"); // LISTO
+                put("INDIRECTOS","21 03 01 1"); // LISTO
+                put("NECESIDADES", "05 02 02 1"); // LISTO
+                put("CONFLICTOS","15 09 02 1"); //LISTO
+                put("PRESUPUESTO", "04 05 02 1"); // LISTO
+                put("TECNOLOGICO","11 11 02 1"); // ¿?
+                put("FECHA", "02 14 02 1"); //
                 put("LOGICA","17 02 01 1");
                 put("RECURSOS", "15 15 02 1");
                 put("LOGISTICA","24 05 01 1");
@@ -294,7 +291,7 @@ public class LateralDer extends JPanel implements ActionListener {
         for (int i = 0; i < Constantes.FILAS; i++) {
             for (int j = 0; j < Constantes.COLUMNAS; j++) {
                 textField[i][j].setText("");
-                textField[i][j].setBorder(BorderFactory.createLineBorder(new Color(48, 48, 48), 1));
+                textField[i][j].setBorder(BorderFactory.createLineBorder(new Color(106, 194, 217), 1));
                 textField[i][j].setBackground(new Color(192, 255, 247));
             }
         }
@@ -320,10 +317,27 @@ public class LateralDer extends JPanel implements ActionListener {
         }
     }
     public void cargar(int cruci) {
-        for (i = 0; i < palabras.length; i++) {
-            System.out.println(palabras[i]);
-            colocarPalabra(1, palabras[i]);
-        }
+        borrar();
+        colocarPalabra(0,Constantes.J_Respuesta01.getText());
+        colocarPalabra(0,Constantes.J_Respuesta02.getText());
+        colocarPalabra(0,Constantes.J_Respuesta03.getText());
+        colocarPalabra(0,Constantes.J_Respuesta04.getText());
+        colocarPalabra(0,Constantes.J_Respuesta05.getText());
+        colocarPalabra(0,Constantes.J_Respuesta06.getText());
+        colocarPalabra(0,Constantes.J_Respuesta07.getText());
+        colocarPalabra(0,Constantes.J_Respuesta08.getText());
+        colocarPalabra(0,Constantes.J_Respuesta09.getText());
+        colocarPalabra(0,Constantes.J_Respuesta10.getText());
+        colocarPalabra(0,Constantes.J_Respuesta11.getText());
+        colocarPalabra(0,Constantes.J_Respuesta12.getText());
+        colocarPalabra(0,Constantes.J_Respuesta13.getText());
+        colocarPalabra(0,Constantes.J_Respuesta14.getText());
+        colocarPalabra(0,Constantes.J_Respuesta15.getText());
+        colocarPalabra(0,Constantes.J_Respuesta16.getText());
+        colocarPalabra(0,Constantes.J_Respuesta17.getText());
+        colocarPalabra(0,Constantes.J_Respuesta18.getText());
+        colocarPalabra(0,Constantes.J_Respuesta19.getText());
+        colocarPalabra(0,Constantes.J_Respuesta20.getText());
     }
 
     @Override

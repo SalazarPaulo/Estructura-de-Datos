@@ -53,7 +53,6 @@ public class LateralIzq extends JPanel implements ItemListener {
                         leido = false;
                     }
                 } while (!leido);
-                System.out.println("-Z: " + z);
                 cambiar(z);
             }
         });
