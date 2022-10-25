@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import Cargadores.*;
 import Parametros.Constantes;
+import Parametros.LateralDer;
 public class EscogerPreguntas extends DataBase {
 
     public int j, i=0, opcion, z;
@@ -12,6 +13,7 @@ public class EscogerPreguntas extends DataBase {
     private HashMap<Integer,Integer> Switch;
     private DataBase db = new DataBase();
     private Datos[] datos = db.getDatos();
+    private LateralDer der;
 
     public void setPreguntas(int opcion) {
         this.opcion = opcion;
@@ -24,11 +26,15 @@ public class EscogerPreguntas extends DataBase {
             }
         };
         z = Switch.get(opcion);
+        der = new LateralDer(opcion);
         System.out.println("Z: " + z + " Opcion: " + opcion);
         for(i = 0; i < preguntas.length; i++) {
             preguntas[i] = i+z;
             respuestas[i] = preguntas[i];
         }
+    }
+    public void setOpcion(int opcion) {
+        this.opcion = opcion;
     }
     public int getOpcion() {
         return opcion;

@@ -115,7 +115,7 @@ public class DataBase extends Datos {
         datos[43].pregunta = "Pregunta no.4: Qué representa tendencias, crisis, ciclos, politicas de innovacion en el analisis PESTEL.";
         datos[43].respuesta = "ECONOMICO";
         datos[44].pregunta = "Pregunta no.5: El diagrama de Ishikawa identifica problemas de:";
-        datos[44].respuesta = "CALIDAD";
+        datos[44].respuesta = "CANTIDAD"; // <--- CALIDAD
         datos[45].pregunta = "Pregunta no.6: Stakeholder matrix está formado por:";
         datos[45].respuesta = "TIEMPOVSDISPONIBILIDAD";
         datos[46].pregunta = "Pregunta no.7: Actividad realizada para obtener todas las visiones y llegar a un criterio común.";

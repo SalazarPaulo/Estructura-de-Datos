@@ -32,7 +32,7 @@ public class Crucigrama extends JFrame {
         frame = new JFrame();
         arriba = new FondoArriba();
         izq = new LateralIzq();
-        der = new LateralDer();
+        der = new LateralDer(0);
 
         frame.getContentPane().setLayout(new BorderLayout(8, 6));
         frame.setBackground(Color.YELLOW);
