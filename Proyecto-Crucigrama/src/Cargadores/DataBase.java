@@ -1,4 +1,4 @@
-package Cargadores;
+package src.Cargadores;
 
 public class DataBase extends Datos {
 
@@ -34,9 +34,9 @@ public class DataBase extends Datos {
         datos[2].respuesta = "ALQUILER";
         datos[3].pregunta = "Pregunta no.4: Tipo de proyectos informáticos.";
         datos[3].respuesta = "REDES";
-        datos[4].pregunta = "Pregunta no.5: ¿Son todos aquellos que pueden ser identificados en el proyecto y están asociados a este?";
+        datos[4].pregunta = "<html>Pregunta no.5: ¿Son todos aquellos que pueden ser identificados en el proyecto y están asociados a este?<html>";
         datos[4].respuesta = "COSTOSDIRECTOS";
-        datos[5].pregunta = "Pregunta no.6: ¿Qué normas se deben establecer para que un proyecto sea considerado exitoso?";
+        datos[5].pregunta = "<html>Pregunta no.6: ¿Qué normas se deben establecer para que un proyecto sea considerado exitoso?<html>";
         datos[5].respuesta = "ISO";
         datos[6].pregunta = "Pregunta no.7: ¿Qué requiere una inversión?";
         datos[6].respuesta = "ANALISIS";
@@ -62,9 +62,9 @@ public class DataBase extends Datos {
         datos[16].respuesta = "BUSES";
         datos[17].pregunta = "Pregunta no.18: ¿Qué tipo de lenguaje se debe usar en los proyectos informáticos?";
         datos[17].respuesta = "COMUN";
-        datos[18].pregunta = "Pregunta no.19: ¿Qué se debe establecer para el equipo para garantizar el éxito de los proyectos informáticos?";
+        datos[18].pregunta = "<html>Pregunta no.19: ¿Qué se debe establecer para el equipo para garantizar el éxito de los proyectos informáticos?<html>";
         datos[18].respuesta = "EXPECTATIVA";
-        datos[19].pregunta = "Pregunta no.20: Mencione un tipo de proyecto informático de instalaciones de hardware.";
+        datos[19].pregunta = "<html>Pregunta no.20: Mencione un tipo de proyecto informático de instalaciones de hardware.<html>";
         datos[19].respuesta = "SERVICIOS";
         datos[20].pregunta = "Pregunta no.1: La búsqueda de una solución inteligente al planteamiento de un problema a resolver. ";
         datos[20].respuesta = "PROYECTO";
@@ -92,7 +92,7 @@ public class DataBase extends Datos {
         datos[31].respuesta = "NECESIDADES";
         datos[32].pregunta = "Pregunta no.13: Falta de habilidades de gestión de proyectos y administración del riesgo ";
         datos[32].respuesta = "CONFLICTOS";
-        datos[33].pregunta = "Pregunta no.14: ¿Para que un proyecto sea considerado exitoso debe estar dentro de un determinado?";
+        datos[33].pregunta = "<html>Pregunta no.14: ¿Para que un proyecto sea considerado exitoso debe estar dentro de un determinado?<html>";
         datos[33].respuesta = "PRESUPUESTO";
         datos[34].pregunta = "Pregunta no.15: ¿En que contexto se puede aplicar un proyecto de tecnología de la informacion?";
         datos[34].respuesta = "TECNOLOGICO";
@@ -100,7 +100,7 @@ public class DataBase extends Datos {
         datos[35].respuesta = "FECHA";
         datos[36].pregunta = "Pregunta no.17: ¿Qué tipo de sucesión se debe presentar en un proyecto?";
         datos[36].respuesta = "LOGICA";
-        datos[37].pregunta = "Pregunta no.18: ¿Que elementos son utilizados para poder realizar la ejecución de cada una de las tareas? ";
+        datos[37].pregunta = "<html>Pregunta no.18: ¿Que elementos son utilizados para poder realizar la ejecución de cada una de las tareas?<html>";
         datos[37].respuesta = "RECURSOS";
         datos[38].pregunta = "Pregunta no.19: En las áreas de aplicación un tipo de disciplina de respaldo es:";
         datos[38].respuesta = "LOGISTICA";
@@ -112,10 +112,10 @@ public class DataBase extends Datos {
         datos[41].respuesta = "FIN";
         datos[42].pregunta = "Pregunta no.3: Son los factores que consideramos ciertos, pero no son controlables";
         datos[42].respuesta = "SUPUESTOS";
-        datos[43].pregunta = "Pregunta no.4: Qué representa tendencias, crisis, ciclos, politicas de innovacion en el analisis PESTEL.";
+        datos[43].pregunta = "<html>Pregunta no.4: Qué representa tendencias, crisis, ciclos, politicas de innovacion en el analisis PESTEL.<html>";
         datos[43].respuesta = "ECONOMICO";
         datos[44].pregunta = "Pregunta no.5: El diagrama de Ishikawa identifica problemas de:";
-        datos[44].respuesta = "CANTIDAD"; // <--- CALIDAD
+        datos[44].respuesta = "CALIDAD";
         datos[45].pregunta = "Pregunta no.6: Stakeholder matrix está formado por:";
         datos[45].respuesta = "TIEMPOVSDISPONIBILIDAD";
         datos[46].pregunta = "Pregunta no.7: Actividad realizada para obtener todas las visiones y llegar a un criterio común.";
@@ -127,7 +127,7 @@ public class DataBase extends Datos {
         datos[49].pregunta = "Pregunta no.10: Variable que se toma en cuenta en los análisis de alternativas";
         datos[49].respuesta = "BENEFICIOS";
         datos[50].pregunta = "Pregunta no.11: Dimension que necesitan los indicadores de fin y propósito";
-        datos[50].respuesta = "CANTIDAD";
+        datos[50].respuesta = "CANTIDAD"; // <--- REPETIDO
         datos[51].pregunta = "Pregunta no.12: Los skateholder map pueden ser agrupados por sus: ";
         datos[51].respuesta = "INTERESES";
         datos[52].pregunta = "Pregunta no.13: ¿En qué se enfoca la P en el análisis PESTEL?";
@@ -136,7 +136,7 @@ public class DataBase extends Datos {
         datos[53].respuesta = "INTERES";
         datos[54].pregunta = "Pregunta no.15: Aspecto importante del proyecto";
         datos[54].respuesta = "COMPONENTES";
-        datos[55].pregunta = "Pregunta no.16: La idea de airbnb surgio del problema de sus fundadores al mudarse a san francisco y no podian pagar el ________";
+        datos[55].pregunta = "<html>Pregunta no.16: La idea de airbnb surgio del problema de sus fundadores al mudarse a san francisco y no podian pagar el ________<html>";
         datos[55].respuesta = "ALQUILER";
         datos[56].pregunta = "Pregunta no.17: En el arbol de problemas las causas van en la  ____________";
         datos[56].respuesta = "RAIZ";
@@ -154,15 +154,15 @@ public class DataBase extends Datos {
         datos[62].respuesta = "OBJETIVOS";
         datos[63].pregunta = "Pregunta no.4: Qué significa la L del ANALISIS PESTEL";
         datos[63].respuesta = "LEGAL";
-        datos[64].pregunta = "Pregunta no.5: ¿Qué significa demografia, estilo de vida, actitudes, aspectos eticos, nivel de educacion ect.. en el analisis PESTEL?";
+        datos[64].pregunta = "<html>Pregunta no.5: ¿Qué significa demografia, estilo de vida, actitudes, aspectos eticos, nivel de educacion ect.. en el analisis PESTEL?<html>";
         datos[64].respuesta = "SOCIAL";
-        datos[65].pregunta = "Pregunta no.6: Debes tener en cuenta la funcionalidad, la fiabilidad, la usabilidad y el diseño que resuelva las necesidades del: ";
+        datos[65].pregunta = "<html>Pregunta no.6: Debes tener en cuenta la funcionalidad, la fiabilidad, la usabilidad y el diseño que resuelva las necesidades del: <html>";
         datos[65].respuesta = "CLIENTE";
         datos[66].pregunta = "Pregunta no.7:La matriz de marco logico se considera un ____";
         datos[66].respuesta = "RESUMEN";
         datos[67].pregunta = "Pregunta no.8: Sus fundadores son  Brian Chesky y Joe Gebbia";
         datos[67].respuesta = "AIRBNB";
-        datos[68].pregunta = "Pregunta no.9: Qué analisis trata la tecnica de los cinco porqués, arbol de problemas y diagrama de Ishikawa";
+        datos[68].pregunta = "<html>Pregunta no.9: Qué analisis trata la tecnica de los cinco porqués, arbol de problemas y diagrama de Ishikawa<html>";
         datos[68].respuesta = "CAUSASYEFECTOS";
         datos[69].pregunta = "Pregunta no.10: ¿Qué metodo se usa para identificar las causas y efectos de un problema?";
         datos[69].respuesta = "ARBOLDEPROBLEMA";
@@ -172,17 +172,17 @@ public class DataBase extends Datos {
         datos[71].respuesta = "PESTEL";
         datos[72].pregunta = "Pregunta no.13: Stakeholder matrix está formado por Nivel de interés vs Nivel de______";
         datos[72].respuesta = "PODER";
-        datos[73].pregunta = "Pregunta no.14: ¿En qué etapa se identifican los problemas de raíz que se desea intervenir del análisis de problemas de causas y efectos?";
+        datos[73].pregunta = "<html>Pregunta no.14: ¿En qué etapa se identifican los problemas de raíz que se desea intervenir del análisis de problemas de causas y efectos?<html>";
         datos[73].respuesta = "SEGUNDA";
         datos[74].pregunta = "Pregunta no.15: ¿En qué parte del Árbol de Problemas se encuentra el cuello de botella?";
         datos[74].respuesta = "PROBLEMA EFECTOS";
         datos[75].pregunta = "Pregunta no.16: ¿En qué parte del Árbol de Problemas se encuentra la falta de personal?";
         datos[75].respuesta = "PROBLEMA CAUSA";
-        datos[76].pregunta = "Pregunta no.17:Qué representa el gobierno, clima político, conflictos, iniciativas y ayudas en el Análisis PESTEL";
+        datos[76].pregunta = "<html>Pregunta no.17: Qué representa el gobierno, clima político, conflictos, iniciativas y ayudas en el Análisis PESTEL<html>";
         datos[76].respuesta = "POLITICO";
-        datos[77].pregunta = "Pregunta no.18: ¿.Qué representa problemas, medio ambiente, procesos, produccion, consumo, politicas ect en  el Análisis PESTEL?";
+        datos[77].pregunta = "<html>Pregunta no.18: ¿.Qué representa problemas, medio ambiente, procesos, produccion, consumo, politicas ect en  el Análisis PESTEL?<html>";
         datos[77].respuesta = "ECOLOGICO";
-        datos[78].pregunta = "Pregunta no.19: ¿Quiénes pueden ser agrupados por sus intereses comunes?";
+        datos[78].pregunta = "<html>Pregunta no.19: ¿Quiénes pueden ser agrupados por sus intereses comunes?<html>";
         datos[78].respuesta = "STAKEHOLDERS";
         datos[79].pregunta = "Pregunta no.20: Empresa ejemplo de análisis del producto mínimo viable";
         datos[79].respuesta = "UBER";

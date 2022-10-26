@@ -1,3 +1,4 @@
+package src;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -8,13 +9,14 @@ import javax.swing.JPanel;
 import javax.swing.JFrame;
 import javax.swing.BorderFactory;
 import javax.swing.border.LineBorder;
+
+import src.Parametros.Constantes;
+import src.Parametros.FondoArriba;
+import src.Parametros.LateralDer;
+import src.Parametros.LateralIzq;
+
 import javax.swing.WindowConstants;
 import javax.swing.ImageIcon;
-
-import Parametros.LateralDer;
-import Parametros.LateralIzq;
-import Parametros.FondoArriba;
-import Parametros.Constantes;
 
 public class Crucigrama extends JFrame {
 
@@ -79,9 +81,9 @@ public class Crucigrama extends JFrame {
         fondo.add(jp3, BorderLayout.NORTH);
 
         ////////-------- ADD FRAME --------//////////
-        icono= new ImageIcon(this.getClass().getResource("Assets/logoutp.png"));
+        icono= new ImageIcon(this.getClass().getResource("/Assets/logoutp.png"));
         frame.setIconImage(icono.getImage());
-
+        
         frame.pack();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

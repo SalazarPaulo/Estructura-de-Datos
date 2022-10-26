@@ -1,4 +1,4 @@
-package Parametros;
+package src.Parametros;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -58,6 +58,7 @@ public class FondoArriba extends JPanel {
         textArea1 = new JTextArea();
         textArea1.setText("  INTEGRANTES:\n\t-Arqui\u00f1ez, Lianeth(8-974-1567)\n\t-Castro, Aldrin(8-993-2253)");
         textArea1.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        textArea1.setForeground(Color.BLACK);
         textArea1.setEditable(false);
         textArea1.setBounds(0, 0, 75, 50);
         textArea1.setOpaque(false);
@@ -66,6 +67,7 @@ public class FondoArriba extends JPanel {
         textArea2 = new JTextArea();
         textArea2.setText("\n\t-Consiglieri, Alberto(20-70-3971)\n\t-De los Santos, David(8-974-141)");
         textArea2.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        textArea2.setForeground(Color.BLACK);
         textArea2.setEditable(false);
         textArea2.setBounds(50, 0, 50, 50);
         textArea2.setOpaque(false);
@@ -74,6 +76,7 @@ public class FondoArriba extends JPanel {
         textArea3 = new JTextArea();
         textArea3.setText("\n\t-Lorenzo, Karen(8-987-1549)\n\t-Vargas, Johana(8-1004-1648)");
         textArea3.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        textArea3.setForeground(Color.BLACK);
         textArea3.setEditable(false);
         textArea3.setBounds(100, 0, 50, 50);
         textArea3.setOpaque(false);

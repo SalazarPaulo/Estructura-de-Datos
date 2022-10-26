@@ -1,4 +1,4 @@
-package Cargadores;
+package src.Cargadores;
 
 public class Datos {
     public String pregunta;

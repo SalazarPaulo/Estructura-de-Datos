@@ -1,7 +1,6 @@
-package Parametros;
+package src.Parametros;
 
 import javax.swing.JLabel;
-
 public class Constantes {
 
     public static final int COLUMNAS = 25;
@@ -15,7 +14,7 @@ public class Constantes {
     public static final JLabel J_Label02 = new JLabel("Pregunta no.2: ¿Cuál es un elemento de un proyecto?", JLabel.LEFT);
     public static final JLabel J_Label03 = new JLabel("Pregunta no.3: ¿Ejemplo de costos indirectos en un proyecto?", JLabel.LEFT);
     public static final JLabel J_Label04 = new JLabel("Pregunta no.4: Tipo de proyectos informáticos.", JLabel.LEFT);
-    public static final JLabel J_Label05 = new JLabel("Pregunta no.5: ¿Son todos aquellos que pueden ser identificados en el proyecto y están asociados a este?", JLabel.LEFT);
+    public static final JLabel J_Label05 = new JLabel("<html>Pregunta no.5: ¿Son todos aquellos que pueden ser identificados en el proyecto y están asociados a este?<html>", JLabel.LEFT);
     public static final JLabel J_Label06 = new JLabel("Pregunta no.6: ¿Qué normas se deben establecer para que un proyecto sea considerado exitoso?", JLabel.LEFT);
     public static final JLabel J_Label07 = new JLabel("Pregunta no.7: ¿Qué requiere una inversión?", JLabel.LEFT);
     public static final JLabel J_Label08 = new JLabel("Pregunta no.8: ¿Qué provoca el poco conocimiento de la industria TI y de los proveedores?", JLabel.LEFT);
@@ -29,7 +28,7 @@ public class Constantes {
     public static final JLabel J_Label16 = new JLabel("Pregunta no.16: ¿Qué área se encarga de preparación del presupuesto?", JLabel.LEFT);
     public static final JLabel J_Label17 = new JLabel("Pregunta no.17: Mencione un tipo de proyecto informático de comunicaciones y redes.", JLabel.LEFT);
     public static final JLabel J_Label18 = new JLabel("Pregunta no.18: ¿Qué tipo de lenguaje se debe usar en los proyectos informáticos?", JLabel.LEFT);
-    public static final JLabel J_Label19 = new JLabel("Pregunta no.19: ¿Qué se debe establecer para el equipo para garantizar el éxito de los proyectos informáticos?", JLabel.LEFT);
+    public static final JLabel J_Label19 = new JLabel("<html>Pregunta no.19: ¿Qué se debe establecer para el equipo para garantizar el éxito de los proyectos informáticos?<html>", JLabel.LEFT);
     public static final JLabel J_Label20 = new JLabel("Pregunta no.20: Mencione un tipo de proyecto informático de instalaciones de hardware.", JLabel.LEFT);
 
     public static final JLabel J_Respuesta01 = new JLabel("PROCESO", JLabel.LEFT);

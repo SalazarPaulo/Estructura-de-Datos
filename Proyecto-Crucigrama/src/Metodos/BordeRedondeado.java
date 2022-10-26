@@ -1,4 +1,4 @@
-package Metodos;
+package src.Metodos;
 
 import java.awt.Component;
 import java.awt.Graphics;

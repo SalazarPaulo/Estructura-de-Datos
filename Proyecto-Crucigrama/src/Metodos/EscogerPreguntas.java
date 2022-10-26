@@ -1,8 +1,8 @@
-package Metodos;
+package src.Metodos;
 
 import java.util.HashMap;
 
-import Cargadores.*;
+import src.Cargadores.*;
 
 public class EscogerPreguntas extends DataBase {
 
@@ -24,7 +24,6 @@ public class EscogerPreguntas extends DataBase {
             }
         };
         z = Switch.get(opcion);
-        System.out.println("Z: " + z + " Opcion: " + opcion);
         for(i = 0; i < preguntas.length; i++) {
             preguntas[i] = i+z;
             respuestas[i] = preguntas[i];
