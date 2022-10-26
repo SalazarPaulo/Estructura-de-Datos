@@ -172,7 +172,7 @@ public class LateralDer extends JPanel implements ActionListener {
             {   // MODULO 1 CRUCIGRAMA 1 // 0-19
                 put("PROCESO", "14 13 02 01"); // LISTO
                 put("ACTIVIDADES", "05 05 01 02"); // LISTO
-                put("ALQUILER", "06 15 01 03"); // LISTO
+                put("ALQUILER", "15 06 01 03"); // LISTO
                 put("REDES","18 12 01 04"); // LISTO
                 put("COSTOSDIRECTOS","01 04 01 05"); // LISTO
                 put("ISO","00 06 02 06"); // LISTO
@@ -227,7 +227,7 @@ public class LateralDer extends JPanel implements ActionListener {
                 put("GOBIERNO", "01 04 01 13"); // LISTO
                 put("INTERES", "12 20 02 14"); // LISTO
                 put("COMPONENTES", "00 05 02 15"); // LISTO
-                put("ALQUILER", "15 06 01 16"); // LISTO
+                put("DISTRIBUIDOR", "12 23 02 16"); // LISTO
                 put("RAIZ", "20 12 02 17"); // LISTO
                 put("PORQUE", "15 08 02 18"); // LISTO
                 put("INVESTIGACION", "10 01 01 19"); // LISTO
@@ -338,26 +338,26 @@ public class LateralDer extends JPanel implements ActionListener {
     }
     public void cargar(int cruci) {
         borrar();
-        colocarPalabra(0,Constantes.J_Respuesta01.getText());
-        colocarPalabra(0,Constantes.J_Respuesta02.getText());
-        colocarPalabra(0,Constantes.J_Respuesta03.getText());
-        colocarPalabra(0,Constantes.J_Respuesta04.getText());
-        colocarPalabra(0,Constantes.J_Respuesta05.getText());
-        colocarPalabra(0,Constantes.J_Respuesta06.getText());
-        colocarPalabra(0,Constantes.J_Respuesta07.getText());
-        colocarPalabra(0,Constantes.J_Respuesta08.getText());
-        colocarPalabra(0,Constantes.J_Respuesta09.getText());
-        colocarPalabra(0,Constantes.J_Respuesta10.getText());
-        colocarPalabra(0,Constantes.J_Respuesta11.getText());
-        colocarPalabra(0,Constantes.J_Respuesta12.getText());
-        colocarPalabra(0,Constantes.J_Respuesta13.getText());
-        colocarPalabra(0,Constantes.J_Respuesta14.getText());
-        colocarPalabra(0,Constantes.J_Respuesta15.getText());
-        colocarPalabra(0,Constantes.J_Respuesta16.getText());
-        colocarPalabra(0,Constantes.J_Respuesta17.getText());
-        colocarPalabra(0,Constantes.J_Respuesta18.getText());
-        colocarPalabra(0,Constantes.J_Respuesta19.getText());
-        colocarPalabra(0,Constantes.J_Respuesta20.getText());
+        colocarPalabra(1,Constantes.J_Respuesta01.getText());
+        colocarPalabra(1,Constantes.J_Respuesta02.getText());
+        colocarPalabra(1,Constantes.J_Respuesta03.getText());
+        colocarPalabra(1,Constantes.J_Respuesta04.getText());
+        colocarPalabra(1,Constantes.J_Respuesta05.getText());
+        colocarPalabra(1,Constantes.J_Respuesta06.getText());
+        colocarPalabra(1,Constantes.J_Respuesta07.getText());
+        colocarPalabra(1,Constantes.J_Respuesta08.getText());
+        colocarPalabra(1,Constantes.J_Respuesta09.getText());
+        colocarPalabra(1,Constantes.J_Respuesta10.getText());
+        colocarPalabra(1,Constantes.J_Respuesta11.getText());
+        colocarPalabra(1,Constantes.J_Respuesta12.getText());
+        colocarPalabra(1,Constantes.J_Respuesta13.getText());
+        colocarPalabra(1,Constantes.J_Respuesta14.getText());
+        colocarPalabra(1,Constantes.J_Respuesta15.getText());
+        colocarPalabra(1,Constantes.J_Respuesta16.getText());
+        colocarPalabra(1,Constantes.J_Respuesta17.getText());
+        colocarPalabra(1,Constantes.J_Respuesta18.getText());
+        colocarPalabra(1,Constantes.J_Respuesta19.getText());
+        colocarPalabra(1,Constantes.J_Respuesta20.getText());
     }
 
     @Override

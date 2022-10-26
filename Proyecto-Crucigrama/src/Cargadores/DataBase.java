@@ -136,8 +136,8 @@ public class DataBase extends Datos {
         datos[53].respuesta = "INTERES";
         datos[54].pregunta = "Pregunta no.15: Aspecto importante del proyecto";
         datos[54].respuesta = "COMPONENTES";
-        datos[55].pregunta = "<html>Pregunta no.16: La idea de airbnb surgio del problema de sus fundadores al mudarse a san francisco y no podian pagar el ________<html>";
-        datos[55].respuesta = "ALQUILER";
+        datos[55].pregunta = "<html>Pregunta no.16: Ejemplo de stakeholders externo.<html>";
+        datos[55].respuesta = "DISTRIBUIDOR";
         datos[56].pregunta = "Pregunta no.17: En el arbol de problemas las causas van en la  ____________";
         datos[56].respuesta = "RAIZ";
         datos[57].pregunta = "Pregunta no.18: ¿En que técnica se utiliza el análisis de problema?";
